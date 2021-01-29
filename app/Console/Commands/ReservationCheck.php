@@ -2,10 +2,12 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Notification;
 use App\Models\Reservation;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+
 
 
 
@@ -41,30 +43,28 @@ class ReservationCheck extends Command
      *
      * @return int
      */
-    public function handle(Reservation $reservation)
+    public function handle(Reservation $reservation, Notification $notification)
     {
         $reservations = $reservation->where('active', 0)->get();
         $today = Carbon::today();
-        $notifications = [];
 
         foreach ($reservations as $res) {
             if ($res->date_of_return <= $today ) {
 
-                $notifications[] = $res->id;
+                $notification = $res;
 
-                $string_notifications = implode(",", $notifications);
+                DB::table('notifications')->insert([
+                    'product_id' => $res->product_id,
+                    'date_of_rent' => $res->date_of_rent,
+                    'date_of_return' => $res->date_of_return,
+                    'price' => $res->price,
+                    'active' => 0,
+                    'customer_id' => $res->customer_id
+                ]);
 
                 $res->update(['active' => 1]);
 
-                $notifications = [];
 
-                DB::table('notifications')->insert([
-                    'notifications' => $string_notifications
-                ]);
-
-                $notfs = explode("," , $string_notifications);
-                    
-            
             }
         }
 

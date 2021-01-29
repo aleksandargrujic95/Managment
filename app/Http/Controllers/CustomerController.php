@@ -32,7 +32,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        
+        return view('customers/create');
     }
 
     /**
@@ -44,13 +44,16 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $attributes = request()->validate([
-            'place' => ['required', 'min:3'],
-            'name' => ['required', 'min:3'],
-            'number_of_rent' => [],
-            'phone_number' => ['required', 'min:9'],
+            'jbk' => [],
+            'konzola' => [],
+            'opstina' => ['required', 'min:3'],
             'address' => ['required', 'min:3'],
+            'name' => ['required', 'min:3'],
+            'phone_number' => ['required', 'min:9'],
+            'number_of_rent' => [],
             'money_spent' => ['required'],
-            'comment' => ['required', 'min:3']
+            'comment' => ['required', 'min:3'],
+            'reservations' => []
         ]);
 
         Customer::create($attributes);
@@ -115,14 +118,14 @@ class CustomerController extends Controller
         return redirect('/customers');
     }
 
-    public function import() 
+    public function import()
     {
         Excel::import(new CustomerImport, 'customers.xlsx');
-        
+
         return redirect('/')->with('success', 'All good!');
     }
 
-    public function importShow() 
+    public function importShow()
     {
         return view('customers.import');
     }

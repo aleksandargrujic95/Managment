@@ -40,7 +40,7 @@ class ReservationController extends Controller
         $customer_id = $request->customer_id;
         $customer = DB::select('select * from customers where id =' . $customer_id);
         $products = $product->all();
-        
+
 
         return view('/reservations.create' , compact('today_parsed','customer_id', 'customer', 'products'));
     }
@@ -65,12 +65,13 @@ class ReservationController extends Controller
         Reservation::create($attributes);
         $customer_id = $request->input('customer_id');
         $customer = DB::select('select * from customers where id =' . $customer_id);
-        
+
         $money_updated = $customer[0]->money_spent + $request->input('price');
+        $rent_number = $customer[0]->number_of_rent + 1;
 
         DB::table('customers')
                     ->where('id', '=', $customer_id)
-                    ->update(['money_spent' => $money_updated]);
+                    ->update(['money_spent' => $money_updated, 'number_of_rent' => $rent_number]);
 
         notify()->success('Reservation created sucessfully');
 
@@ -132,7 +133,7 @@ class ReservationController extends Controller
     {
         $customer_id = $reservation->customer_id;
         $customer = DB::select('select * from customers where id =' . $customer_id);
-        
+
         $money_updated = $customer[0]->money_spent -= $reservation->price;
 
         if($money_updated <= 0){
@@ -150,6 +151,6 @@ class ReservationController extends Controller
         return redirect('/reservations');
     }
 
-   
+
 
 }

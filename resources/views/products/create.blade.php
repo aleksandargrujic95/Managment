@@ -6,7 +6,7 @@
         <h5><b><i class="fa fa-gamepad"></i>Create Product</b></h5>
       </header>
       <div class="therichpost-row-padding therichpost-margin-bottom">
-        <form class="form-width" method="POST" action="/product">
+        <form class="form-width" method="POST" action="/products">
             @csrf
             <div class="form-group">
               <label for="productName">Product name</label>

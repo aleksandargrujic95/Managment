@@ -16,7 +16,7 @@
                 <h2>Manage <b>Customers</b></h2>
               </div>
               <div class="col-xs-6 ">
-                <a href="/product/create" class="btn btn-success" ><i class="material-icons"></i> <span>Add New Product</span></a>					
+                <a href="/customers/create" class="btn btn-success" ><i class="material-icons"></i> <span>Add New Customer</span></a>					
               </div>
             </div>
           </div>

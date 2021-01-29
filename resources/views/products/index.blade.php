@@ -17,7 +17,7 @@
                   <h2>Manage <b>Employees</b></h2>
                 </div>
                 <div class="col-xs-6 ">
-                  <a href="/product/create" class="btn btn-success" ><i class="material-icons"></i> <span>Add New Product</span></a>					
+                  <a href="/products/create" class="btn btn-success" ><i class="material-icons"></i> <span>Add New Product</span></a>
                 </div>
               </div>
             </div>
@@ -28,7 +28,7 @@
 
                   </th>
                   <th>Name</th>
-                  <th>Category</th>                 
+                  <th>Category</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -39,12 +39,12 @@
                     <span class="custom-checkbox">
                       <label for="checkbox1"></label>
                     </span>
-                  </td>                 
+                  </td>
                       <td>{{$product->name}}</td>
                       <td>{{$product->category_id}}</td>
                   <td>
-                    <a href="{{ route('product.edit', $product->id) }}" class="edit" ><i class="fa fa-pencil" data-toggle="tooltip" title="Edit"></i></a>
-                    <form action="{{ route('product.destroy', $product->id) }}" method="POST" class="dlt-form">
+                    <a href="{{ route('products.edit', $product->id) }}" class="edit" ><i class="fa fa-pencil" data-toggle="tooltip" title="Edit"></i></a>
+                    <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="dlt-form">
                       @csrf
                       @method('DELETE')
                       <button class="dlt-btn" type="submit" class="delete" ><i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" title="Delete"></i></button>
@@ -52,7 +52,7 @@
                   </td>
                 </tr>
                 @endforeach
-                
+
               </tbody>
             </table>
             <div class="clearfix">
@@ -68,18 +68,18 @@
               </ul>
             </div>
           </div>
-        </div>        
+        </div>
         </div>
       <!-- Edit Modal HTML -->
       <div id="addEmployeeModal" class="modal fade">
         <div class="modal-dialog">
           <div class="modal-content">
             <form>
-              <div class="modal-header">						
+              <div class="modal-header">
                 <h4 class="modal-title">Add Employee</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               </div>
-              <div class="modal-body">					
+              <div class="modal-body">
                 <div class="form-group">
                   <label>Name</label>
                   <input type="text" class="form-control" required>
@@ -95,7 +95,7 @@
                 <div class="form-group">
                   <label>Phone</label>
                   <input type="text" class="form-control" required>
-                </div>					
+                </div>
               </div>
               <div class="modal-footer">
                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
@@ -110,11 +110,11 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <form>
-              <div class="modal-header">						
+              <div class="modal-header">
                 <h4 class="modal-title">Edit Employee</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               </div>
-              <div class="modal-body">					
+              <div class="modal-body">
                 <div class="form-group">
                   <label>Name</label>
                   <input type="text" class="form-control" required>
@@ -130,7 +130,7 @@
                 <div class="form-group">
                   <label>Phone</label>
                   <input type="text" class="form-control" required>
-                </div>					
+                </div>
               </div>
               <div class="modal-footer">
                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
@@ -145,11 +145,11 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <form>
-              <div class="modal-header">						
+              <div class="modal-header">
                 <h4 class="modal-title">Delete Employee</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               </div>
-              <div class="modal-body">					
+              <div class="modal-body">
                 <p>Are you sure you want to delete these Records?</p>
                 <p class="text-warning"><small>This action cannot be undone.</small></p>
               </div>
@@ -165,19 +165,19 @@
         $(document).ready(function(){
           // Activate tooltip
           $('[data-toggle="tooltip"]').tooltip();
-          
+
           // Select/Deselect checkboxes
           var checkbox = $('table tbody input[type="checkbox"]');
           $("#selectAll").click(function(){
             if(this.checked){
               checkbox.each(function(){
-                this.checked = true;                        
+                this.checked = true;
               });
             } else{
               checkbox.each(function(){
-                this.checked = false;                        
+                this.checked = false;
               });
-            } 
+            }
           });
           checkbox.click(function(){
             if(!this.checked){
