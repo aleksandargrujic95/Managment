@@ -4,8 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Pagination\Paginator;
 use App\Models\Category;
+use App\Models\Notification;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+
 
 
 class AppServiceProvider extends ServiceProvider
@@ -27,10 +29,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $categories = Category::all();
+        
+        $notifications_numb = Notification::count();
 
-        view()->share('categories', $categories);
-
+        view()->share('notifications_numb', $notifications_numb);
+        
         Paginator::useBootstrap();
 
 

@@ -23,7 +23,7 @@
   <span class="therichpost-bar-item therichpost-left"><img src="{{asset('images/logo.png')}}" alt=""></span>
   <span class="therichpost-bar-item therichpost-right"><a href="/login">Login</a></span>
   <span class="therichpost-bar-item therichpost-right"><a href="/register">Register</a></span>
-  <span class="therichpost-bar-item therichpost-right"><a href="/#"><i class="fa fa-bell" data-toggle="tooltip" title="Edit">3</i></a></span>
+  <span class="therichpost-bar-item therichpost-right"><a href="/notifications"><i class="fa fa-bell" data-toggle="tooltip" title="Edit">{{($notifications_numb > 0) ? $notifications_numb : '' }}</i></a></span>
 </div>
 <!-- Sidebar/menu -->
 <nav class="therichpost-sidebar therichpost-collapse therichpost-white therichpost-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
@@ -36,14 +36,7 @@
     <a href="/reservations" class="therichpost-bar-item therichpost-button therichpost-padding"><i class="fa fa-calendar fa-fw"></i>  Reservations</a>
     <a href="/categories" class="therichpost-bar-item therichpost-button therichpost-padding"><i class="fa fa-list fa-fw"></i>  Categories</a>
     <a href="/customers" class="therichpost-bar-item therichpost-button therichpost-padding"><i class="fa fa-users fa-fw"></i>  Customers</a>
-    <div class="dropdown show">
-    <a class="therichpost-bar-item therichpost-button therichpost-padding dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gamepad fa-fw"></i>  Products</a><br><br>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        @foreach ($categories as $category)
-         <a class="dropdown-item" href="">{{$category->name}}</a>
-        @endforeach
-      </div>
-    </div>
+    <a href="/products" class="therichpost-bar-item therichpost-button therichpost-padding"><i class="fa fa-gamepad fa-fw"></i>  Products</a>
   </div>
 </nav>
 <!-- Overlay effect when opening sidebar on small screens -->

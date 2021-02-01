@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\SearchController;
 use App\Imports\CustomerImport;
@@ -39,7 +40,6 @@ Route::resource('products', ProductController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('customers', CustomerController::class);
 Route::resource('reservations', ReservationController::class);
-
-
+Route::resource('notifications', NotificationController::class);
 
 Route::get('/test', [SearchController::class, 'test']);

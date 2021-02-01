@@ -13,6 +13,11 @@ class Customer extends Model
 
     public function reservations()
   {
-    return $this->hasMany('App\Reservations');
+    return $this->hasMany('App\Reservations', 'reservation_id');
+  }
+
+  public function notifications()
+  {
+    return $this->hasMany('App\Notifications', 'notification_id');
   }
 }

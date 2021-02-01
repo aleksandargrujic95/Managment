@@ -15,13 +15,9 @@
 
             <label for="start">End date:</label>
             <input type="date" id="start" name="date_of_return" value="today_parsed">
-            {{-- <label for="start">Customer:</label>
-            <input type="text" value="{{$customer[0]->name}}">
-            <input type="text" value="{{$customer[0]->jbk}}">
-            <input type="text" value="{{$customer[0]->phone_number}}">
-            <input type="text" value="{{$customer[0]->address}}"> --}}
-            <input type="text" name="active" value="0">
+            <input hidden type="text" name="active" value="0">
             <input type="text" name="customer_id" hidden value="{{$customer_id}}">
+            <br>
             <label for="price">Price:</label>
             <input type="text" name="price">
             <div class="form-group" >

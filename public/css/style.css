@@ -1660,3 +1660,15 @@ table.table .avatar {
 .therichpost-table-all tr:nth-child(even){
     background-color:#f1f1f1
 }
+.check{
+    color: rgb(21, 190, 21);
+}
+.check:hover{
+    color: rgb(12, 85, 12);
+}
+.notification-table th{
+    width: 20%;
+}
+.notification-table td{
+    width: 20%;
+}

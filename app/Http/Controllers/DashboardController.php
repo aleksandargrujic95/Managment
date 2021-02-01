@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Notification;
 use App\Models\Reservation;
+
 
 class DashboardController extends Controller
 {
@@ -17,8 +19,9 @@ class DashboardController extends Controller
         $products_numb = Product::count();
         $categories_numb = Category::count();
         $reservations_numb = Reservation::count();
+        $notifications_numb = Notification::count();
 
-        return view('index', compact('customers_numb','reservations_numb','products_numb','categories_numb'));
+        return view('index', compact('customers_numb','reservations_numb','products_numb','categories_numb', 'notifications_numb'));
 
     }
 
