@@ -1672,3 +1672,14 @@ table.table .avatar {
 .notification-table td{
     width: 20%;
 }
+.search-imputs{
+    display: inline-block;
+}
+.customer-search-button{
+    margin-left: auto;
+}
+.logout-btn{
+    padding: 0;
+    border: none;
+    background: none;
+}

@@ -18,7 +18,7 @@
               </div>
             </div>
           </div>
-          <table class="table table-striped table-hover current-reservations">
+          <table class="table table-striped table-hover">
             <thead>
               <tr>
                 <th>Number:</th>
@@ -31,7 +31,7 @@
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="current-reservations">
               @foreach ($reservations as $reservation)
               <tr>             
                     <td>{{$reservation->id}}</td>    
@@ -39,8 +39,8 @@
                     <td>{{$reservation->product_id}}</td>
                     <td>{{$reservation->active}}</td>
                     <td>{{$reservation->price}}</td>
-                    <td>{{$reservation->date_of_rent}}</td>
-                    <td>{{$reservation->date_of_return}}</td>
+                    <td>{{$reservation->date_of_rent->toDateString()}}</td>
+                    <td>{{$reservation->date_of_return->toDateString()}}</td>
                 <td class="action-td">
                   <a href="{{ route('reservations.edit', $reservation->id) }}" class="edit" ><i class="fa fa-pencil"  title="Edit"></i></a>
                   <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST" class="dlt-form">

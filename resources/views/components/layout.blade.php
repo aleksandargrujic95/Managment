@@ -21,7 +21,14 @@
 <div class="therichpost-bar therichpost-top therichpost-white therichpost-large" style="z-index:4">
   <button class="therichpost-bar-item therichpost-button therichpost-hide-large therichpost-hover-none therichpost-hover-text-light-grey" onclick="therichpost_open()"><i class="fa fa-bars"></i>  Menu</button>
   <span class="therichpost-bar-item therichpost-left"><img src="{{asset('images/logo.png')}}" alt=""></span>
-  <span class="therichpost-bar-item therichpost-right"><a href="/login">Login</a></span>
+  <span class="therichpost-bar-item therichpost-right">
+    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button class="logout-btn" type="submit">
+            {{ __('Logout') }}
+        </button>
+    </form>
+  </span>
   <span class="therichpost-bar-item therichpost-right"><a href="/register">Register</a></span>
   <span class="therichpost-bar-item therichpost-right"><a href="/notifications"><i class="fa fa-bell" data-toggle="tooltip" title="Edit">{{($notifications_numb > 0) ? $notifications_numb : '' }}</i></a></span>
 </div>

@@ -16,9 +16,10 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
+        $categories = Category::all();
 
 
-        return view('products/index', compact('products'));
+        return view('products/index', compact('products', 'categories'));
     }
 
     /**
@@ -70,9 +71,10 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Product $product, Category $category)
     {
-        return view('products.edit', compact('product'));
+        $categories = $category->all();
+        return view('products.edit', compact('product','categories'));
     }
 
     /**
@@ -82,7 +84,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Product $product, Category $category)
     {
         $request->validate([
             'name' => 'required',

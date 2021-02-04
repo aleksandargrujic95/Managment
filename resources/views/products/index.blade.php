@@ -33,9 +33,6 @@
                 @foreach ($products as $product)
                 <tr>
                   <td>
-                    <span class="custom-checkbox">
-                      <label for="checkbox1"></label>
-                    </span>
                   </td>
                       <td>{{$product->name}}</td>
                       <td>{{$product->category_id}}</td>
@@ -52,7 +49,7 @@
 
               </tbody>
             </table>  
-      </div>
+    </div>
       <script>
         $(document).ready(function(){
           // Activate tooltip

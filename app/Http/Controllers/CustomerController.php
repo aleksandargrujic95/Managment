@@ -120,7 +120,7 @@ class CustomerController extends Controller
 
     public function import()
     {
-        Excel::import(new CustomerImport, 'customers.xlsx');
+    Excel::import(new CustomerImport, 'customers.xlsx');
 
         return redirect('/')->with('success', 'All good!');
     }
@@ -130,13 +130,18 @@ class CustomerController extends Controller
         return view('customers.import');
     }
 
-    public function searchCustomer()
+    public function filter(Request $request)
     {
-        $customers_filtered = QueryBuilder::for(Customer::class)
-            ->allowedFilters(['name','jbk','phone_number'])
-            ->get();
 
-        return view('/customers');
+        if($request->has('name')){
+            $customer = Customer::where('name', $request->name);
+        }
+        if($request->has('jbk')){
+            $customer = Customer::where('jbk', $request->jbk);
+        }
+        // Search for a customer based on their name.
+
+        var_dump($customer);
     }
 
 }

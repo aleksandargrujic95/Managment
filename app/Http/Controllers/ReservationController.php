@@ -23,6 +23,18 @@ class ReservationController extends Controller
 
         return view('/reservations.index', compact('reservations'));
     }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexAll(Reservation $reservation)
+    {
+        $reservations = $reservation->all();
+
+        return view('/reservations/indexAll', compact('reservations'));
+    }
 
     /**
      * Show the form for creating a new resource.

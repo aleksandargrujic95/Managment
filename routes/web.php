@@ -26,20 +26,25 @@ use Spatie\QueryBuilder\QueryBuilder;
 |
 */
 
-Route::get('/', [DashboardController::class , 'index']);
-
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/customers/import', [CustomerController::class, 'importShow']);
-Route::post('/customers/import', [CustomerController::class, 'import']);
+Route::middleware(['auth', 'user'])->group(function () {
 
-Route::resource('products', ProductController::class);
-Route::resource('categories', CategoryController::class);
-Route::resource('customers', CustomerController::class);
-Route::resource('reservations', ReservationController::class);
-Route::resource('notifications', NotificationController::class);
+    Route::get('/', [DashboardController::class , 'index']);
 
-Route::get('/test', [SearchController::class, 'test']);
+    Route::resource('customers', CustomerController::class);
+    Route::get('/customers/import', [CustomerController::class, 'importShow']);
+    Route::post('/customers/import', [CustomerController::class, 'import']);
+    Route::post('/customers/search', [CustomerController::class, 'filter']);
+
+    Route::resource('reservations', ReservationController::class);
+    Route::get('/reservations/all', [ReservationController::class, 'indexAll']);
+
+    Route::resource('products', ProductController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('notifications', NotificationController::class);
+
+    Route::get('/test', [SearchController::class, 'test']);
+});

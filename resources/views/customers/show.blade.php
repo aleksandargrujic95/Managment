@@ -3,18 +3,15 @@
     <div class="table-body" class="therichpost-main" style="margin-left:300px;">
       <!-- Header -->
       <header class="therichpost-container" style="padding-top:22px">
-        <h5><b><i class="fa fa-gamepad"></i> Customers</b></h5>
+        <h5><b><i class="fa fa-gamepad"></i> Customer</b></h5>
       </header>
-      <div class="therichpost-row-padding therichpost-margin-bottom">
-        Categories
-      </div>
       <div class="container">
         <div class="table-responsive">
           <div class="table-wrapper">
             <div class="table-title">
               <div class="row">
                 <div class="col-xl-9">
-                  <h2>Manage <b>Customers</b></h2>
+                  <h2>Manage <b>Customer</b></h2>
                 </div>
                 <div class="col-xs-6 ">
                   <a href="/product/create" class="btn btn-success" ><i class="material-icons"></i> <span>Add New Product</span></a>					
@@ -71,10 +68,7 @@
                 <div class="table-title">
                   <div class="row">
                     <div class="col-xl-9">
-                      <h2>Manage <b>Reservations</b></h2>
-                    </div>
-                    <div class="col-xs-6 ">
-                      <a href="/product/create" class="btn btn-success" ><i class="material-icons"></i> <span>Add New Product</span></a>					
+                      <h2>All <b>Reservations</b></h2>
                     </div>
                   </div>
                 </div>
@@ -96,8 +90,8 @@
                     <tr>             
                           <td>{{$reservation->id}}</td>    
                           <td>{{$reservation->customer->name}}</td>
-                          <td>{{$reservation->product_id}}</td>
-                          <td>{{$reservation->active}}</td>
+                          <td>{{$reservation->product->name}}</td>
+                          <td>{{($reservation->active) ? 'Collected'  : "Active"}}</td>
                           <td>{{$reservation->price}}</td>
                           <td>{{$reservation->date_of_rent->toDateString()}}</td>
                           <td>{{$reservation->date_of_return->toDateString()}}</td>
