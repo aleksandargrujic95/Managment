@@ -10,11 +10,14 @@
           <div class="table-wrapper">
             <div class="table-title">
               <div class="row">
-                <div class="col-xl-9">
+                <div class="col-xl-8">
                   <h2>Manage <b>Reservations</b></h2>
                 </div>
                 <div class="col-xs-6 ">
                   <a href="/customers" class="btn btn-success" ><i class="material-icons"></i> <span>Add New Reservation</span></a>					
+                </div>
+                <div class="col-xs-6 ">
+                  <a href="/reservations" class="btn btn-info" ><i class="material-icons"></i> <span>Current Reservations</span></a>					
                 </div>
               </div>
             </div>
@@ -31,13 +34,13 @@
                   <th>Action</th>
                 </tr>
               </thead>
-              <tbody class="current-reservations">
+              <tbody>
                 @foreach ($reservations as $reservation)
                 <tr>             
                       <td>{{$reservation->id}}</td>    
                       <td>{{$reservation->customer->name}}</td>
-                      <td>{{$reservation->product_id}}</td>
-                      <td>{{$reservation->active}}</td>
+                      <td>{{$reservation->product->name}}</td>
+                      <td>{{($reservation->active) ? 'collected' : 'active'}}</td>
                       <td>{{$reservation->price}}</td>
                       <td>{{$reservation->date_of_rent->toDateString()}}</td>
                       <td>{{$reservation->date_of_return->toDateString()}}</td>

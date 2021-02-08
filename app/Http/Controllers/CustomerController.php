@@ -8,7 +8,7 @@ use App\Imports\CustomerImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use App\Models\Reservation;
-use Spatie\QueryBuilder\QueryBuilder;
+use Laravolt\Avatar\Avatar;
 
 
 class CustomerController extends Controller
@@ -18,11 +18,19 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Customer $customer, Request $request)
     {
-        $customers = Customer::paginate(10);
+        $avatar = new Avatar();
 
-        return view('customers.index', compact('customers'));
+        $customers = Customer::paginate(5);
+
+        return view('customers.index', compact('customers','avatar'));
+    }
+
+    public function test()
+    {
+
+        return view('customers.test');
     }
 
     /**
@@ -44,7 +52,7 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $attributes = request()->validate([
-            'jbk' => [],
+            'jbk' => ['required'],
             'konzola' => [],
             'opstina' => ['required', 'min:3'],
             'address' => ['required', 'min:3'],
@@ -55,12 +63,12 @@ class CustomerController extends Controller
             'comment' => ['required', 'min:3'],
             'reservations' => []
         ]);
-
+        die(var_dump( $attributes->jbk));
         Customer::create($attributes);
 
         notify()->success('Customer created sucessfully');
 
-        return redirect('/customers');
+        return $attributes;
     }
 
     /**
@@ -84,7 +92,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return view('customers.edit', compact('customer'));
     }
 
     /**
@@ -130,18 +138,13 @@ class CustomerController extends Controller
         return view('customers.import');
     }
 
-    public function filter(Request $request)
+    public function search(Request $request)
     {
+        $avatar = new Avatar();
 
-        if($request->has('name')){
-            $customer = Customer::where('name', $request->name);
-        }
-        if($request->has('jbk')){
-            $customer = Customer::where('jbk', $request->jbk);
-        }
-        // Search for a customer based on their name.
+        $customers = Customer::filter($request->all())->paginate(5);
 
-        var_dump($customer);
+        return view('customers.search' , compact('customers', 'avatar'));
     }
 
 }

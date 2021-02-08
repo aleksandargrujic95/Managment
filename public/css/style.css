@@ -1683,3 +1683,12 @@ table.table .avatar {
     border: none;
     background: none;
 }
+.bgimg {
+    background-image: url("{{ asset('/images/background-landing.jpg') }}")
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.search-fields{
+    margin-top: 20px;
+}

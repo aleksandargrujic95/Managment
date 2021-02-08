@@ -37,7 +37,7 @@
                       <td>{{$product->name}}</td>
                       <td>{{$product->category_id}}</td>
                   <td>
-                    <a href="{{ route('products.edit', $product->id) }}" class="edit" ><i class="fa fa-pencil" data-toggle="tooltip" title="Edit"></i></a>
+                    <a href="{{ route('products.edit', $product->id) }}" class="edit" ><i class="fa fa-pencil"  title="Edit"></i></a>
                     <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="dlt-form">
                       @csrf
                       @method('DELETE')

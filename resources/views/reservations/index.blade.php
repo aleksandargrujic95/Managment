@@ -16,6 +16,9 @@
               <div class="col-xs-6 ">
                 <a href="/customers" class="btn btn-success" ><i class="material-icons"></i> <span>Add New Reservation</span></a>					
               </div>
+              <div class="col-xs-6 ">
+                <a href="/reservation/all" class="btn btn-info" ><i class="material-icons"></i> <span>All Reservations</span></a>					
+              </div>
             </div>
           </div>
           <table class="table table-striped table-hover">

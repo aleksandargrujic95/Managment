@@ -86,12 +86,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product, Category $category)
     {
-        $request->validate([
-            'name' => 'required',
-            'category_id' => 'required'
-        ]);
-
-        $product->update($request->all());
+        $product->update(request(['name','category_id']));
 
         notify()->success('Product updated sucessfully');
 

@@ -33,7 +33,7 @@ class ReservationController extends Controller
     {
         $reservations = $reservation->all();
 
-        return view('/reservations/indexAll', compact('reservations'));
+        return view('/reservations/all', compact('reservations'));
     }
 
     /**

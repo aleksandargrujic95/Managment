@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        
+
         $notifications_numb = Notification::count();
 
         view()->share('notifications_numb', $notifications_numb);

@@ -16,26 +16,28 @@
                 <div class="col-xl-3">
                   <h2>Manage <b>Customers</b></h2>
                 </div> 
-                <div class="input-group rounded col-xl-9">
-                  <form class="form-inline" method="POST" action="/customers/search">
-                    @csrf
-                    <div class="form-group mx-sm-3 mb-2">
+                <div class="col-xl-8 ">
+                  <a href="/customers/create" class="btn btn-success" ><i class="material-icons"></i> <span>Add New Customer</span></a>					
+                </div>
+                <div class="input-group rounded col-xl-12 search-fields">
+                  <form class="form-inline" method="GET" action="/customer/search">
+                    <div class="form-group mx-sm-2 mb-2">
                       <label for="inputCustomerName" class="sr-only">Customer Name</label>
                       <input type="text" class="form-control" id="inputCustomerName2" placeholder="Name" name="name">
                     </div>
-                    <div class="form-group mx-sm-3 mb-2">
+                    <div class="form-group mx-sm-2 mb-2">
                       <label for="inputPhoneNumber" class="sr-only">Phone Number</label>
                       <input type="text" class="form-control" id="inputPhoneNumber" placeholder="Phone Number" name="phone_number">
                     </div>
-                    <div class="form-group mx-sm-3 mb-2">
+                    <div class="form-group mx-sm-2 mb-2">
                       <label for="inputAddress" class="sr-only">Address</label>
                       <input type="Address" class="form-control" id="inputAddress" placeholder="Address" name="address">
                     </div>
-                    <div class="form-group mx-sm-3 mb-2">
+                    <div class="form-group mx-sm-2 mb-2">
                       <label for="inputPlace" class="sr-only">Place</label>
                       <input type="text" class="form-control" id="inputPlace" placeholder="Place" name="place">
                     </div>
-                    <div class="form-group mx-sm-3 mb-2">
+                    <div class="form-group mx-sm-2 mb-2">
                       <label for="inputJbk" class="sr-only">Jbk</label>
                       <input type="text" class="form-control" id="inputJbk" placeholder="Jbk" name="jbk">
                     </div>
@@ -48,7 +50,7 @@
           <table class="table table-striped table-hover">
             <thead>
               <tr>
-                <th>Number</th>
+                <th>Avatar</th>
                 <th>Jbk</th>
                 <th>Place</th>
                 <th>Addresss</th>
@@ -63,7 +65,7 @@
               @foreach ($customers as $customer)
               <tr>             
                     <td>
-                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->id}}</a>
+                      <a href="{{ route('customers.show', $customer->id) }}"> <img src="{{$avatar->create($customer->name)->toBase64()}}"></a>
                     </td>    
                     <td>
                       <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->jbk}}</a>

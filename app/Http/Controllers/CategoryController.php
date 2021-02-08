@@ -80,16 +80,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $request->validate([
-            'name'=> ['required', 'min:2']
-        ]);
 
-        $category->update($request->all());
+        $category->update(request(['name']));
 
         notify()->success('Category updated sucessfully');    
 
-        return redirect('categories')
-            ->with('success', 'Category updated sucessfully.');
+        return redirect('categories');
     }
 
     /**

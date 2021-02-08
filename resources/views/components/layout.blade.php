@@ -29,7 +29,6 @@
         </button>
     </form>
   </span>
-  <span class="therichpost-bar-item therichpost-right"><a href="/register">Register</a></span>
   <span class="therichpost-bar-item therichpost-right"><a href="/notifications"><i class="fa fa-bell" data-toggle="tooltip" title="Edit">{{($notifications_numb > 0) ? $notifications_numb : '' }}</i></a></span>
 </div>
 <!-- Sidebar/menu -->

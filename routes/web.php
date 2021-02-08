@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\RouteController;
 use App\Http\Controllers\SearchController;
 use App\Imports\CustomerImport;
 use App\Models\Customer;
@@ -30,21 +31,40 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::middleware(['auth', 'user'])->group(function () {
+// Middleware group for admin 
 
+Route::middleware(['auth', 'admin'])->group(function () {
+
+    // Dashboard Route
     Route::get('/', [DashboardController::class , 'index']);
 
+    // Customers Routes
     Route::resource('customers', CustomerController::class);
     Route::get('/customers/import', [CustomerController::class, 'importShow']);
     Route::post('/customers/import', [CustomerController::class, 'import']);
-    Route::post('/customers/search', [CustomerController::class, 'filter']);
+    Route::get('customer/search', [CustomerController::class, 'search']);
 
+    // Reservations Routes
     Route::resource('reservations', ReservationController::class);
-    Route::get('/reservations/all', [ReservationController::class, 'indexAll']);
+    Route::get('/reservation/all', [ReservationController::class, 'indexAll']);
 
+    // Products Routes
     Route::resource('products', ProductController::class);
+
+    // Categories Routes
     Route::resource('categories', CategoryController::class);
+
+    // Notifications Routes
     Route::resource('notifications', NotificationController::class);
 
-    Route::get('/test', [SearchController::class, 'test']);
+    Route::get('/test/test', [CustomerController::class, 'test']);
+
 });
+
+// Middleware group for user
+Route::middleware(['auth', 'user'])->group(function () {
+
+    Route::get('/user/welcome', [RouteController::class, 'index']);
+
+});
+
