@@ -16,9 +16,9 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     @notifyCss
     </head>
-    <body class="therichpost-light-grey">
+    <body class="therichpost-light-grey" onscroll="scroll();">
         <!-- Top container -->
-<div class="therichpost-bar therichpost-top therichpost-white therichpost-large" style="z-index:4">
+<div class="therichpost-bar therichpost-top therichpost-white therichpost-large" style="z-index:4" >
   <button class="therichpost-bar-item therichpost-button therichpost-hide-large therichpost-hover-none therichpost-hover-text-light-grey" onclick="therichpost_open()"><i class="fa fa-bars"></i>  Menu</button>
   <span class="therichpost-bar-item therichpost-left"><img src="{{asset('images/logo.png')}}" alt=""></span>
   <span class="therichpost-bar-item therichpost-right">
@@ -54,6 +54,8 @@
 <script>
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
+
+var y = window.scrollY;
 // Get the DIV with overlay effect
 var overlayBg = document.getElementById("myOverlay");
 // Toggle between showing and hiding the sidebar, and add overlay effect
@@ -70,6 +72,11 @@ function therichpost_open() {
 function therichpost_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";
+}
+function scroll(){
+  if(y >= '65px'){
+    mySidebar.style.top = 0;
+  }
 }
 </script>
 

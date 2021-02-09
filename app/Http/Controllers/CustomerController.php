@@ -142,9 +142,9 @@ class CustomerController extends Controller
     {
         $avatar = new Avatar();
 
-        $customers = Customer::filter($request->all())->paginate(5);
+        $customers_filtered = Customer::filter($request->all())->get();
 
-        return view('customers.search' , compact('customers', 'avatar'));
+        return view('customers.search' , compact('customers_filtered', 'avatar'));
     }
 
 }

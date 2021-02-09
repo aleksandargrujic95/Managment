@@ -47,4 +47,15 @@
       </div>
     </div>
   </div>
+  {!! $chart_reservations->container() !!}
+
+    <script src="{{ $chart_reservations->cdn() }}"></script>
+
+    {{ $chart_reservations->script() }}
+
+    {!! $chart_customers->container() !!}
+
+    <script src="{{ $chart_customers->cdn() }}"></script>
+
+    {{ $chart_customers->script() }}
 </x-layout>

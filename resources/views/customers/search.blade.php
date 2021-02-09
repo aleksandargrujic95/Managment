@@ -35,7 +35,7 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach ($customers as $customer)
+                @foreach ($customers_filtered as $customer)
                 <tr>             
                       <td>
                         <a href="{{ route('customers.show', $customer->id) }}"> <img src="{{$avatar->create($customer->name)->toBase64()}}"></a>
@@ -80,7 +80,6 @@
               </tbody>
               
             </table>
-            {!! $customers->links() !!}
         </div>        
         </div>
      

@@ -22,6 +22,7 @@
                   <th>Customer:</th>
                   <th>Product:</th>                             
                   <th>Price:</th>
+                  <th>Customer Phone Number:</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -32,6 +33,7 @@
                       <td>{{$notification->customer->name}}</td>
                       <td>{{$notification->product->name}}</td>
                       <td>{{$notification->price}}</td>
+                      <td>{{$notification->customer->phone_number}}</td>
                   <td>
                     <form action="{{ route('notifications.destroy', $notification->id) }}" method="POST" class="dlt-form">
                       @csrf
