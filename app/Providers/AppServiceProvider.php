@@ -35,9 +35,9 @@ class AppServiceProvider extends ServiceProvider
             $url->formatScheme('https');
         }
 
-        $notifications_numb = Notification::count();
+        // $notifications_numb = Notification::count();
 
-        view()->share('notifications_numb', $notifications_numb);
+        // view()->share('notifications_numb', $notifications_numb);
         
         Paginator::useBootstrap();
 
