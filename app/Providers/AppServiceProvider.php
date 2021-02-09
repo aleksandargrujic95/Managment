@@ -5,9 +5,9 @@ namespace App\Providers;
 use Illuminate\Pagination\Paginator;
 use App\Models\Category;
 use App\Models\Notification;
+use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-
 
 
 class AppServiceProvider extends ServiceProvider
@@ -27,8 +27,11 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(UrlGenerator $url)
     {
+        if(env('REDIRECT_HTTPS')){
+            $url->forceSchema('https');
+        }
 
         $notifications_numb = Notification::count();
 
