@@ -33,7 +33,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 // Middleware group for admin 
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['auth', 'user'])->group(function () {
 
     // Dashboard Route
     Route::get('/', [DashboardController::class , 'index']);
