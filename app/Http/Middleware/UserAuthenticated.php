@@ -20,12 +20,12 @@ class UserAuthenticated
         if( Auth::check() )
         {
             // if user admin take him to his dashboard
-            if ( Auth::user()->isUser() ) {
+            if ( Auth::user()->isAdmin() ) {
                  return redirect(route('/'));
             }
 
             // allow user to proceed with request
-            else if ( Auth::user()->isAdmin() ) {
+            else if ( Auth::user()->isUser() ) {
                  return $next($request);
             }
         }
