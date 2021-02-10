@@ -39,7 +39,7 @@
               <tr>             
                     <td>{{$reservation->id}}</td>    
                     <td>{{$reservation->customer->name}}</td>
-                    <td>{{$reservation->product_id}}</td>
+                    <td>{{$reservation->product->name}}, {{$reservation->product->category_id}}</td>
                     <td>{{$reservation->active}}</td>
                     <td>{{$reservation->price}}</td>
                     <td>{{$reservation->date_of_rent->toDateString()}}</td>

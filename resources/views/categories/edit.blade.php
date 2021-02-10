@@ -6,7 +6,7 @@
         <h5><b><i class="fa fa-gamepad"></i>Update Category</b></h5>
       </header>
       <div class="therichpost-row-padding therichpost-margin-bottom">
-        <form class="form-width" method="POST" action="{{route('category.update', $category->id)}}">
+        <form class="form-width" method="POST" action="{{route('categories.update', $category->id)}}">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -15,5 +15,14 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
+          @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
       </div>
 </x-layout>

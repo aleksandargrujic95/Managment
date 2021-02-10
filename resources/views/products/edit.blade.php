@@ -6,7 +6,7 @@
         <h5><b><i class="fa fa-gamepad"></i>Update Product</b></h5>
       </header>
       <div class="therichpost-row-padding therichpost-margin-bottom">
-        <form class="form-width" method="POST" action="{{route('product.update', $product->id)}}">
+        <form class="form-width" method="POST" action="{{route('products.update', $product->id)}}">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -17,7 +17,7 @@
                 <div class="col-auto my-1 drpdwn">
                     <label class="mr-sm-2" for="inlineFormCustomSelect">Category</label>
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect"  name='category_id'>
-                      <option selected">Choose...</option>
+                      <option selected" value="{{$product->category_id}}</option>}}">Choose...</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
@@ -26,5 +26,14 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
+          @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
       </div>
 </x-layout>

@@ -54,21 +54,21 @@ class CustomerController extends Controller
         $attributes = request()->validate([
             'jbk' => ['required'],
             'konzola' => [],
-            'opstina' => ['required', 'min:3'],
-            'address' => ['required', 'min:3'],
-            'name' => ['required', 'min:3'],
-            'phone_number' => ['required', 'min:9'],
-            'number_of_rent' => [],
+             'opstina' => ['required', 'min:3'],
+             'address' => ['required', 'min:3'],
+             'name' => ['required', 'min:3'],
+             'phone_number' => ['required', 'min:9'],
+             'number_of_rent' => [],
             'money_spent' => ['required'],
-            'comment' => ['required', 'min:3'],
-            'reservations' => []
+             'comment' => [],
+             'reservations' => []
         ]);
-        die(var_dump( $attributes->jbk));
         Customer::create($attributes);
 
         notify()->success('Customer created sucessfully');
 
-        return $attributes;
+        return redirect('/customers');
+
     }
 
     /**

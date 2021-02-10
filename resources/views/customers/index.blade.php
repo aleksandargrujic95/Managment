@@ -41,7 +41,7 @@
                       <label for="inputJbk" class="sr-only">Jbk</label>
                       <input type="text" class="form-control" id="inputJbk" placeholder="Jbk" name="jbk">
                     </div>
-                    <button type="submit" class="customer-search-button" ><i class="fa fa-search"></i></button>
+                    <button type="submit" class="customer-search-button" >  <i class="fa fa-search"></i></button>
                   </form>
                 </div>
               </div>

@@ -20,66 +20,76 @@
                   </div>
               </div>
             </div>
-            <table class="table table-striped table-hover">
-              <thead>
-                <tr>
-                  <th>Avatar</th>
-                  <th>Jbk</th>
-                  <th>Place</th>
-                  <th>Addresss</th>
-                  <th>Name</th>                 
-                  <th>Phone number</th>
-                  <th>Money spent</th>
-                  <th>Comment</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach ($customers_filtered as $customer)
-                <tr>             
-                      <td>
-                        <a href="{{ route('customers.show', $customer->id) }}"> <img src="{{$avatar->create($customer->name)->toBase64()}}"></a>
-                      </td>    
-                      <td>
-                        <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->jbk}}</a>
-                      </td>
-                      <td>
-                        <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->opstina}}</a>
-                      </td>
-                      <td>
-                        <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->address}}</a>
-                      </td>
-                      <td>
-                        <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->name}}</a>
-                      </td>
-                      <td>
-                        <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->phone_number}}</a>
-                      </td>
-                      <td>
-                        <a href="{{ route('customers.show', $customer->id) }}">$ {{$customer->money_spent}}</a>
-                      </td>
-                      <td>
-                        <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->comment}}</a>
-                      </td>
-                  <td class="action-td">
-                    <a href="{{ route('customers.edit', $customer->id) }}" class="edit" ><i class="fa fa-pencil"  title="Edit"></i></a>
-                    <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" class="dlt-form">
-                      @csrf
-                      @method('DELETE')
-                      <button class="dlt-btn" type="submit" class="delete" ><i class="fa fa-trash-o" aria-hidden="true"  title="Delete"></i></button>
-                    </form>
-                    <form action="{{ route('reservations.create') }}" method="GET" class="dlt-form">
-                      @csrf
-                      <input type="text" hidden value="{{$customer->id}}" name="customer_id">
-                      <button class="rsvr-btn" type="submit" class="delete" ><i class="fa fa-calendar" aria-hidden="true"  title="Submit"></i></button>
-                    </form>
-                  </td>
-                </tr>
-                @endforeach
-                
-              </tbody>
+           @if (count($customers_filtered) > 0)
+
+           <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Avatar</th>
+                <th>Jbk</th>
+                <th>Place</th>
+                <th>Addresss</th>
+                <th>Name</th>                 
+                <th>Phone number</th>
+                <th>Money spent</th>
+                <th>Comment</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($customers_filtered as $customer)
+              <tr>             
+                    <td>
+                      <a href="{{ route('customers.show', $customer->id) }}"> <img src="{{$avatar->create($customer->name)->toBase64()}}"></a>
+                    </td>    
+                    <td>
+                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->jbk}}</a>
+                    </td>
+                    <td>
+                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->opstina}}</a>
+                    </td>
+                    <td>
+                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->address}}</a>
+                    </td>
+                    <td>
+                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->name}}</a>
+                    </td>
+                    <td>
+                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->phone_number}}</a>
+                    </td>
+                    <td>
+                      <a href="{{ route('customers.show', $customer->id) }}">$ {{$customer->money_spent}}</a>
+                    </td>
+                    <td>
+                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->comment}}</a>
+                    </td>
+                <td class="action-td">
+                  <a href="{{ route('customers.edit', $customer->id) }}" class="edit" ><i class="fa fa-pencil"  title="Edit"></i></a>
+                  <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" class="dlt-form">
+                    @csrf
+                    @method('DELETE')
+                    <button class="dlt-btn" type="submit" class="delete" ><i class="fa fa-trash-o" aria-hidden="true"  title="Delete"></i></button>
+                  </form>
+                  <form action="{{ route('reservations.create') }}" method="GET" class="dlt-form">
+                    @csrf
+                    <input type="text" hidden value="{{$customer->id}}" name="customer_id">
+                    <button class="rsvr-btn" type="submit" class="delete" ><i class="fa fa-calendar" aria-hidden="true"  title="Submit"></i></button>
+                  </form>
+                </td>
+              </tr>
+              @endforeach
               
-            </table>
+            </tbody>
+            
+          </table>
+               
+           @else
+
+           <h1>No Results Found </h1>
+
+           <a href="/customers">Back to all customers</a>
+               
+           @endif
         </div>        
         </div>
      

@@ -1692,3 +1692,6 @@ table.table .avatar {
 .search-fields{
     margin-top: 20px;
 }
+.error-message{
+    width: 400px;
+}
