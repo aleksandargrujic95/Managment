@@ -84,9 +84,9 @@ class DashboardController extends Controller
     //         ])
     //     ;
 
-    //     return view('index', compact('customers_numb','reservations_numb','products_numb','categories_numb','notifications_numb','chart_customers','chart_reservations'));
+         return view('index', compact('customers_numb','reservations_numb','products_numb','categories_numb'));
 
-    // }
+     }
 
     public function sidebar()
     {
