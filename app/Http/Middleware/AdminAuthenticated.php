@@ -19,15 +19,26 @@ class AdminAuthenticated
     {
         if( Auth::check() )
         {
-            // if user is not admin take him to his dashboard
-            if ( Auth::user()->isUser() ) {
-                 return redirect(route('/users/welcome'));
-            }
+            // // if user is not admin take him to his dashboard
+            // if ( Auth::user()->isUser() ) {
+            //      return redirect(route('/users/welcome'));
+            // }
 
-            // allow admin to proceed with request
-            else if ( Auth::user()->isAdmin() ) {
-                 return $next($request);
-            }
+            // // allow admin to proceed with request
+            // else if ( Auth::user()->isAdmin() ) {
+            //      return $next($request);
+            // }
+
+            // if user is not admin take him to his dashboard
+            if ( Auth::user()->isAdmin() ) {
+                return redirect(route('/users/welcome'));
+           }
+
+           // allow admin to proceed with request
+           else if ( Auth::user()->isUser() ) {
+                return $next($request);
+           }
+
         }
 
         abort(404);  // for other user throw 404 error
