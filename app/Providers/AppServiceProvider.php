@@ -33,7 +33,11 @@ class AppServiceProvider extends ServiceProvider
         // $notifications_numb = Notification::count();
 
         // view()->share('notifications_numb', $notifications_numb);
-        
+       
+        if(env(key:'APP_ENV') !== 'local'){
+            URL::forceScheme(scheme:'https');
+        }
+
         Paginator::useBootstrap();
 
 
