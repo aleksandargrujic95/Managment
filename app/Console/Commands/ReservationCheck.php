@@ -62,6 +62,10 @@ class ReservationCheck extends Command
                     'customer_id' => $res->customer_id
                 ]);
 
+                DB::table('products')
+                ->where('id', $notification->product_id)
+                ->update(['rented' => 0]);
+
                 $res->update(['active' => 1]);
 
 

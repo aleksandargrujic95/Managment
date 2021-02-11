@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Notification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NotificationController extends Controller
 {
@@ -94,6 +95,10 @@ class NotificationController extends Controller
     public function destroy(Notification $notification)
     {
         $notification->delete();
+
+        DB::table('products')
+            ->where('id', $notification->product_id)
+            ->update(['rented' => 1]);
 
         return redirect('/notifications');
     }

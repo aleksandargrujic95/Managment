@@ -14,8 +14,23 @@
                 <input type="text" class="form-control" placeholder="Customer Name" name="name">
               </div>
               <div class="form-group col-md-6">
-                <label for="inputState4">Place</label>
-                <input type="text" class="form-control" placeholder="Customer Place Of Living" name="opstina">
+                  <label for="place">Select Place</label>
+                  <select name="opstina" class="form-control" id="place">
+                    <option selected>Choose...</option>
+                    <option value="Čukarica">Čukarica</option>
+                    <option value="Novi Beograd">Novi Beograd</option>
+                    <option value="Palilula">Palilula</option>
+                    <option value="Rakovica">Rakovica</option>
+                    <option value="Savski venac">Savski venac</option>
+                    <option value="Stari grad">Stari grad</option>
+                    <option value="Voždovac">Voždovac</option>
+                    <option value="Vračar">Vračar</option>
+                    <option value="Zemun">Zemun</option>
+                    <option value="Zvezdara">Zvezdara</option>
+                    <option value="Barajevo">Barajevo</option>
+                    <option value="Grocka">Grocka</option>
+                    <option value="Surčin">Surčin</option>
+                  </select>
               </div>
             </div>
             <div class="form-group">

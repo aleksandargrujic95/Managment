@@ -54,7 +54,7 @@
             <thead>
               <tr>
                 <th>Avatar</th>
-                <th>Jbk</th>
+                <th>id</th>
                 <th>Place</th>
                 <th>Addresss</th>
                 <th>Name</th>                 
@@ -71,7 +71,7 @@
                       <a href="{{ route('customers.show', $customer->id) }}"> <img src="{{$avatar->create($customer->name)->toBase64()}}"></a>
                     </td>    
                     <td>
-                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->jbk}}</a>
+                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->id}}</a>
                     </td>
                     <td>
                       <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->opstina}}</a>
