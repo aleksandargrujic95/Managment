@@ -34,8 +34,8 @@ class AppServiceProvider extends ServiceProvider
 
         // view()->share('notifications_numb', $notifications_numb);
        
-        if(env(key:'APP_ENV') !== 'local'){
-            URL::forceScheme(scheme:'https');
+        if(config('app.env') === 'production') {
+            \URL::forceScheme('https');
         }
 
         Paginator::useBootstrap();
