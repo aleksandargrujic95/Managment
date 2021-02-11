@@ -40,9 +40,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     // Customers Routes
     Route::resource('customers', CustomerController::class);
-    Route::get('/customers/import', [CustomerController::class, 'importShow']);
-    Route::post('/customers/import', [CustomerController::class, 'import']);
+    Route::get('/customer/import', [CustomerController::class, 'importShow']);
+    Route::post('/customer/import', [CustomerController::class, 'import']);
     Route::get('customer/search', [CustomerController::class, 'search']);
+    Route::get('customer/loyal', [CustomerController::class, 'loyal']);
 
     // Reservations Routes
     Route::resource('reservations', ReservationController::class);

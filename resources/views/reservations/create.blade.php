@@ -11,24 +11,25 @@
           <div class="form-group">
             <div class="form-group row">
             <div class="col-md-5">
-              <label for="example-date-input" class="col-2 col-form-label">Date</label>
+              <label for="example-date-input" class="col-7 col-form-label">Date of Rent</label>
               <input class="form-control" type="date" name="date_of_rent" value="today_parsed" id="example-date-input">
             </div>
             <div class="col-md-5">
-              <label for="example-date-input" class="col-2 col-form-label">Date</label>
+              <label for="example-date-input" class="col-7 col-form-label">Date of Return</label>
               <input class="form-control" type="date" name="date_of_return" value="today_parsed" id="example-date-input">
             </div>
             </div>
             <input hidden type="text" name="active" value="0">
             <input type="text" name="customer_id" hidden value="{{$customer_id}}">
             <br>
-            <label for="price">Price:</label>
-            <input type="text" name="price">
-            <div class="input-group mb-2">
-              <div class="input-group-prepend">
-                <span class="input-group-text">$</span>
+            <div class="form-group">
+              <div class="col-md-7">
+                <label for="price">Price:</label>
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                  <input type="text" name="price" class="form-control" aria-label="Amount (to the nearest dollar)">
+                </div>
               </div>
-              <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
             </div>
             <div class="form-group" >
               <div class="col-auto my-1 drpdwn">

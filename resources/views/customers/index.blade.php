@@ -16,8 +16,11 @@
                 <div class="col-xl-3">
                   <h2>Manage <b>Customers</b></h2>
                 </div> 
-                <div class="col-xl-8 ">
+                <div class="col-xl-5 ">
                   <a href="/customers/create" class="btn btn-success" ><i class="material-icons"></i> <span>Add New Customer</span></a>					
+                </div>
+                <div class="col-xl-4 ">
+                  <a href="/customer/loyal" class="btn btn-success" ><i class="material-icons"></i> <span>Loyal Customers</span></a>					
                 </div>
                 <div class="input-group rounded col-xl-12 search-fields">
                   <form class="form-inline" method="GET" action="/customer/search">
@@ -57,7 +60,7 @@
                 <th>Name</th>                 
                 <th>Phone number</th>
                 <th>Money spent</th>
-                <th>Comment</th>
+                <th>Number of rents</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -86,7 +89,7 @@
                       <a href="{{ route('customers.show', $customer->id) }}">$ {{$customer->money_spent}}</a>
                     </td>
                     <td>
-                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->comment}}</a>
+                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->number_of_rent}}</a>
                     </td>
                 <td class="action-td">
                   <a href="{{ route('customers.edit', $customer->id) }}" class="edit" ><i class="fa fa-pencil"  title="Edit"></i></a>

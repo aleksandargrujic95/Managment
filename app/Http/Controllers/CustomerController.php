@@ -27,6 +27,18 @@ class CustomerController extends Controller
         return view('customers.index', compact('customers','avatar'));
     }
 
+    public function loyal(Customer $customer, Request $request)
+    {
+        $avatar = new Avatar();
+
+        $loyality_price = 30000;
+
+        $customers = $customer->where('money_spent', '>=', $loyality_price)->paginate(5);
+
+        return view('customers.loyal', compact('customers','avatar'));
+    }
+
+
     public function test()
     {
 

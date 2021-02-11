@@ -47,7 +47,7 @@
       </div>
     </div>
   </div>
-  {!! $chart_reservations->container() !!}
+  {{-- {!! $chart_reservations->container() !!}
 
     <script src="{{ $chart_reservations->cdn() }}"></script>
 
@@ -57,5 +57,5 @@
 
     <script src="{{ $chart_customers->cdn() }}"></script>
 
-    {{ $chart_customers->script() }}
+    {{ $chart_customers->script() }} --}}
 </x-layout>
