@@ -14,12 +14,12 @@ class LoginController extends Controller
     {
         // to admin dashboard
         if($user->isAdmin()) {
-            return redirect(route('/welcome'));
+            return redirect(route('/'));
         }
 
         // to user dashboard
         else if($user->isUser()) {
-            return redirect(route('/'));
+            return redirect(route('/welcome'));
         }
 
         abort(404);
