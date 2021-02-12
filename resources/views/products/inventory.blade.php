@@ -3,7 +3,7 @@
     <div class="table-body" class="therichpost-main" style="margin-left:300px;">
       <!-- Header -->
       <header class="therichpost-container" style="padding-top:22px">
-        <h5><b><i class="fa fa-gamepad"></i> Products</b></h5>
+        <h5><b><i class="fa fa-gamepad"></i> Inventory</b></h5>
       </header>
       <div class="container">
         <div class="table-responsive">
@@ -11,7 +11,7 @@
             <div class="table-title">
               <div class="row">
                 <div class="col-xl-9">
-                  <h2>Manage <b>Products</b></h2>
+                  <h2><b>Inventory</b></h2>
                 </div>
                 <div class="col-xs-6 ">
                   <a href="/products/create" class="btn btn-success" ><i class="material-icons"></i> <span>Add New Product</span></a>
@@ -24,20 +24,26 @@
                   <th>
 
                   </th>
-                  <th>Name</th>
+                  <th>ID</th>
+                  <th>Serial Number</th>
+                  <th>Date of Purchase</th>
+                  <th>Condition</th>
+                  <th>Comment</th>
                   <th>Category</th>
-                  <th>Status</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
                 @foreach ($products as $product)
-                <tr class="{{$product->rented ? 'lager' : 'rented'}}">
+                <tr>
                   <td>
                   </td>
-                      <td>{{$product->name}}</td>
+                      <td>{{$product->id}}</td>
+                      <td>{{$product->serial_key}}</td>
+                      <td>{{$product->date_of_purchase}}</td>
+                      <td>{{$product->condition}}</td>
+                      <td>{{$product->comment}}</td>
                       <td>{{$product->category_id}}</td>
-                      <td>{{$product->rented ? 'On lager' : 'Rented'}}</td>
                   <td>
                     <a href="{{ route('products.edit', $product->id) }}" class="edit" ><i class="fa fa-pencil"  title="Edit"></i></a>
                     <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="dlt-form">

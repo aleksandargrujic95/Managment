@@ -13,17 +13,17 @@ class Product extends Model
 
     public function categories()
     {
-        return $this->belongsTo('App\Categories', 'category_id');
+        return $this->belongsTo('App\Models\Category', 'category_id');
     }
 
     public function reservations()
     {
-        return $this->hasMany('App\Reservations', 'reservation_id');
+        return $this->hasMany('App\Models\Reservation', 'reservation_id');
     }
 
     public function notifications()
     {
-        return $this->hasMany('App\Notifications', 'notification_id');
+        return $this->hasMany('App\Models\Notification', 'notification_id');
     }
     
 }

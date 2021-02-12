@@ -6,7 +6,7 @@
         <h5><b><i class="fa fa-gamepad"></i>Create Category</b></h5>
       </header>
       <div class="therichpost-row-padding therichpost-margin-bottom">
-        <form class="form-width" method="POST" action="/customers/import">
+        <form class="form-width" method="POST" action="/customer/import">
             @csrf
             <div class="form-group">
               <label for="categoryName">Category name</label>

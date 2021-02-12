@@ -74,7 +74,7 @@
                       <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->id}}</a>
                     </td>
                     <td>
-                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->opstina}}</a>
+                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->place}}</a>
                     </td>
                     <td>
                       <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->address}}</a>

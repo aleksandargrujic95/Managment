@@ -23,9 +23,7 @@
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
-                  <th>
-
-                  </th>
+                  <th>Image</th>
                   <th>Name</th>                
                   <th>Actions</th>
                 </tr>
@@ -33,8 +31,7 @@
               <tbody>
                 @foreach ($categories as $category)
                 <tr>
-                  <td>
-                  </td>                 
+                  <td><img src="{{url('/images/' .$category->image)}}" alt=""></td>                 
                       <td>{{$category->name}}</td>
                   <td>
                     <a href="{{ route('categories.edit', $category->id) }}" class="edit" ><i class="fa fa-pencil" data-toggle="tooltip" title="Edit"></i></a>

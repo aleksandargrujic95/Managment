@@ -51,6 +51,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     // Products Routes
     Route::resource('products', ProductController::class);
+    Route::get('product/inventory', [ProductController::class, 'inventory']);
 
     // Categories Routes
     Route::resource('categories', CategoryController::class);

@@ -37,11 +37,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $attributes = $request->validate([
-            'name'=> ['required', 'min:2']
+        $request->validate([
+            'name'=> ['required', 'min:2'],
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        Category::create($attributes);
+        $image = time().'.'.$request->image->extension();
+        
+        $name = $request->name;
+
+        $request->image->move(public_path('images'), $image);
+
+        Category::create(['image' => $image, 'name' => $name]);
 
         notify()->success('Category created sucessfully');
 

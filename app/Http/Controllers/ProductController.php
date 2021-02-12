@@ -43,6 +43,12 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $attributes = request()->validate([
+            'serial_key' => ['required'],
+            'date_of_purchase' => ['required'],
+            'value' => ['required'],
+            'condition' => ['required'],
+            'comment' => [],
+            'rented' => [],
             'category_id' => ['required'],
             'name' => ['required', 'min:3']
         ]);
@@ -106,5 +112,14 @@ class ProductController extends Controller
         notify()->success('Product removed sucessfully');
 
         return redirect('/products');
+    }
+
+    public function inventory()
+    {
+        $products = Product::all();
+        $categories = Category::all();
+
+
+        return view('products/inventory', compact('products', 'categories'));
     }
 }

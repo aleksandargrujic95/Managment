@@ -1695,3 +1695,9 @@ table.table .avatar {
 .error-message{
     width: 400px;
 }
+.lager{
+    background-color: #97e59a !important;
+}
+.rented{
+    background-color: #df7196 !important;
+}

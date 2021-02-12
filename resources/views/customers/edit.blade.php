@@ -15,42 +15,70 @@
                 <input type="text" class="form-control" placeholder="Customer Name" name="name" value="{{$customer->name}}">
               </div>
               <div class="form-group col-md-6">
-                <label for="inputState4">Place</label>
-                <input type="text" class="form-control" placeholder="Customer Place Of Living" name="opstina" value="{{$customer->place}}">
+                  <label for="place">Select Place</label>
+                  <select name="place" class="form-control" id="place">
+                    <option selected >{{$customer->place}}</option>
+                    <option value="Čukarica">Čukarica</option>
+                    <option value="Novi Beograd">Novi Beograd</option>
+                    <option value="Palilula">Palilula</option>
+                    <option value="Rakovica">Rakovica</option>
+                    <option value="Savski venac">Savski venac</option>
+                    <option value="Stari grad">Stari grad</option>
+                    <option value="Voždovac">Voždovac</option>
+                    <option value="Vračar">Vračar</option>
+                    <option value="Zemun">Zemun</option>
+                    <option value="Zvezdara">Zvezdara</option>
+                    <option value="Barajevo">Barajevo</option>
+                    <option value="Grocka">Grocka</option>
+                    <option value="Surčin">Surčin</option>
+                  </select>
               </div>
             </div>
-            <div class="form-group">
-              <label for="inputAddress">Address</label>
-              <input type="text" class="form-control" placeholder="Customer Address" name="address" value="{{$customer->address}}">
-            </div>
-            <div class="form-group">
-              <label for="inputNumber">Number Of Rent</label>
-              <input type="text" class="form-control" placeholder="Customer Number Of Rent" name="reservations" value="{{$customer->number_of_rent}}">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" placeholder="Customer Address" name="address" value="{{$customer->address}}">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="find_us">How Did You Hear About Us</label>
+                  <select name="find_us" class="form-control" id="find_us">
+                    <option selected>Choose...</option>
+                    <option value="web">Web</option>
+                    <option value="social_network">Social Network</option>
+                    <option value="add">Add</option>
+                    <option value="referal">Referal</option>
+                  </select>
+              </div>
             </div>
             <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="inputNumber">Number Of Rent</label>
+                <input type="number" class="form-control" name="number_of_rent"  value="{{$customer->number_of_rent}}">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputMoney">Money Spent</label>
+                <input type="number" class="form-control" name="money_spent" value="{{$customer->money_spent}}">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputReferalId">Referal ID</label>
+                <input type="text" class="form-control" name="referal_id" value="{{$customer->referal_id}}">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputReferal">Referal Points</label>
+                <input type="number" class="form-control" name="referal_points" value="{{$customer->referal_points}}">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputComment">Comment</label>
+                <input type="text" class="form-control" placeholder="Comment" name="comment"  value="{{$customer->comment}}">
+              </div>
               <div class="form-group col-md-6">
                 <label for="inputPhone">Phone Number</label>
-                <input type="text" class="form-control" placeholder="Customer Phone Nuber" name="phone_number" value="{{$customer->phone_number}}">
-              </div>
-              <div class="form-group col-md-4">
-                <label for="inputComment">Comment</label>
-                <input type="text" class="form-control" placeholder="Comment" name="Comment" value="{{$customer->comment}}">
-              </div>
-              <div class="form-group col-md-2">
-                <label for="inputZip">Jbk</label>
-                <input type="text" class="form-control" placeholder="" name="jbk" value="{{$customer->jbk}}">
+                <input type="text" class="form-control" placeholder="Customer Phone Number" name="phone_number" value="{{$customer->phone_number}}">
               </div>
             </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="inputMoney">Money Spent</label>
-                <input type="text" class="form-control" name="money_spent" value="{{$customer->money_spent}}">
-              </div>
-                <input hidden type="text" class="form-control" placeholder="Customer Comment" name="konzola" value="value="{{$customer->konzola}}"">
-                <input hidden type="text" class="form-control" placeholder="Customer Comment" name="reservations" value="value="{{$customer->reservations}}"">
-                <input hidden type="text" class="form-control" placeholder="Customer Number Of Rent" name="number_of_rent" value="value="{{$customer->number_of_rent}}"">
-            </div>
-            <button type="submit" class="btn btn-primary">Create Customer</button>
+            <button type="submit" class="btn btn-primary">Update Customer</button>
           </form>
           @if ($errors->any())
             <div class="alert alert-danger">

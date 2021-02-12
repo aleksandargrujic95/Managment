@@ -15,7 +15,7 @@
               </div>
               <div class="form-group col-md-6">
                   <label for="place">Select Place</label>
-                  <select name="opstina" class="form-control" id="place">
+                  <select name="place" class="form-control" id="place">
                     <option selected>Choose...</option>
                     <option value="Čukarica">Čukarica</option>
                     <option value="Novi Beograd">Novi Beograd</option>
@@ -33,36 +33,49 @@
                   </select>
               </div>
             </div>
-            <div class="form-group">
-              <label for="inputAddress">Address</label>
-              <input type="text" class="form-control" placeholder="Customer Address" name="address">
-            </div>
-            <div class="form-group">
-              <label for="inputNumber">Number Of Rent</label>
-              <input type="text" class="form-control" placeholder="Customer Number Of Rent" name="reservations">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" placeholder="Customer Address" name="address">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="find_us">How Did You Hear About Us</label>
+                  <select name="find_us" class="form-control" id="find_us">
+                    <option selected>Choose...</option>
+                    <option value="web">Web</option>
+                    <option value="social_network">Social Network</option>
+                    <option value="add">Add</option>
+                    <option value="referal">Referal</option>
+                  </select>
+              </div>
             </div>
             <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="inputNumber">Number Of Rent</label>
+                <input type="number" class="form-control" name="number_of_rent">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputMoney">Money Spent</label>
+                <input type="number" class="form-control" name="money_spent">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputReferalId">Referal ID</label>
+                <input type="text" class="form-control" name="referal_id">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputReferal">Referal Points</label>
+                <input type="number" class="form-control" name="referal_points">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputComment">Comment</label>
+                <input type="text" class="form-control" placeholder="Comment" name="comment" value="">
+              </div>
               <div class="form-group col-md-6">
                 <label for="inputPhone">Phone Number</label>
-                <input type="text" class="form-control" placeholder="Customer Phone Nuber" name="phone_number">
+                <input type="text" class="form-control" placeholder="Customer Phone Number" name="phone_number">
               </div>
-              <div class="form-group col-md-4">
-                <label for="inputComment">Comment</label>
-                <input type="text" class="form-control" placeholder="Comment" name="Comment" value="">
-              </div>
-              <div class="form-group col-md-2">
-                <label for="inputZip">Jbk</label>
-                <input type="text" class="form-control" placeholder="" name="jbk">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="inputMoney">Money Spent</label>
-                <input type="text" class="form-control" name="money_spent">
-              </div>
-                <input hidden type="text" class="form-control" placeholder="Customer Comment" name="konzola" value="/">
-                <input hidden type="text" class="form-control" placeholder="Customer Comment" name="reservations" value="/">
-                <input hidden type="text" class="form-control" placeholder="Customer Number Of Rent" name="number_of_rent" value="0">
             </div>
             <button type="submit" class="btn btn-primary">Create Customer</button>
           </form>

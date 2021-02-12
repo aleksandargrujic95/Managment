@@ -64,17 +64,17 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $attributes = request()->validate([
-            'jbk' => ['required'],
-            'konzola' => [],
-             'opstina' => ['required', 'min:3'],
+             'place' => ['required', 'min:3'],
              'address' => ['required', 'min:3'],
              'name' => ['required', 'min:3'],
              'phone_number' => ['required', 'min:9'],
              'number_of_rent' => [],
             'money_spent' => ['required'],
              'comment' => [],
-             'reservations' => []
+             'find_us' => [],
+             'referal_points' => []
         ]);
+
         Customer::create($attributes);
 
         notify()->success('Customer created sucessfully');
@@ -116,7 +116,7 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        $customer->update(request(['name','opstina','phone_number','address','comment','number_of_rent','money_spent']));
+        $customer->update(request(['name','opstina','phone_number','address','comment','number_of_rent','money_spent','referal_points','find_us']));
 
         notify()->success('Customer updated sucessfully');
 

@@ -11,7 +11,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
        
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/6feaa94670.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     @notifyCss
@@ -43,6 +43,7 @@
     <a href="/categories" class="therichpost-bar-item therichpost-button therichpost-padding"><i class="fa fa-list fa-fw"></i>  Categories</a>
     <a href="/customers" class="therichpost-bar-item therichpost-button therichpost-padding"><i class="fa fa-users fa-fw"></i>  Customers</a>
     <a href="/products" class="therichpost-bar-item therichpost-button therichpost-padding"><i class="fa fa-gamepad fa-fw"></i>  Products</a>
+    <a href="/product/inventory" class="therichpost-bar-item therichpost-button therichpost-padding"><i class="fa fa-clipboard-list fa-fw"></i>  Inventory</a>
   </div>
 </nav>
 <!-- Overlay effect when opening sidebar on small screens -->
