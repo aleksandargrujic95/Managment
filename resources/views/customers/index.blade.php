@@ -75,13 +75,13 @@
                       <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->id}}</a>
                     </td>
                     <td>
-                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->place}}</a>
+                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->name}}</a>
                     </td>
                     <td>
                       <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->address}}</a>
                     </td>
                     <td>
-                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->name}}</a>
+                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->place}}</a>
                     </td>
                     <td>
                       <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->phone_number}}</a>
