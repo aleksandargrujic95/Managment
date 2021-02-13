@@ -1701,3 +1701,18 @@ table.table .avatar {
 .rented{
     background-color: #df7196 !important;
 }
+.bronze{
+    color: #b08d57;
+}
+.silver{
+    color: #aaa9ad;
+}
+.gold{
+    color: #d4af37;
+}
+.platinum{
+    color: #82b0e4;
+}
+.black{
+    color: rgb(39, 39, 39);
+}

@@ -61,6 +61,7 @@
                 <th>Phone number</th>
                 <th>Money spent</th>
                 <th>Number of rents</th>
+                <th>Loyality</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -90,6 +91,21 @@
                     </td>
                     <td>
                       <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->number_of_rent}}</a>
+                    </td>
+                    <td>
+                      <a href="{{ route('customers.show', $customer->id) }}"> 
+                        @if ($customer->money_spent < 20000)
+                          <i class="fas fa-crown black"></i>
+                        @elseif($customer->money_spent >= 20000 && $customer->money_spent < 30000)
+                          <i class="fas fa-crown bronze"></i>
+                        @elseif($customer->money_spent >= 30000 && $customer->money_spent < 50000)
+                          <i class="fas fa-crown silver"></i>
+                        @elseif($customer->money_spent >= 50000 && $customer->money_spent < 100000)
+                          <i class="fas fa-crown gold"></i>
+                        @elseif($customer->money_spent >= 100000)
+                          <i class="fas fa-crown platinum"></i>
+                        @endif
+                      </a>
                     </td>
                 <td class="action-td">
                   <a href="{{ route('customers.edit', $customer->id) }}" class="edit" ><i class="fa fa-pencil"  title="Edit"></i></a>

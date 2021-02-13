@@ -74,10 +74,21 @@ class ReservationController extends Controller
             'customer_id' => ['required']
         ]);
 
+        var_dump($request->referal_id);
+
+        if($request->referal_id != null){
+            $referal = DB::select('select * from customers where id =' . $request->referal_id);
+            var_dump($referal);
+            $referal_points = $referal[0]->referal_points + 10;
+            DB::table('customers')
+                    ->where('id', '=', $request->referal_id)
+                    ->update(['referal_points' => $referal_points]);
+        }
+
         Reservation::create($attributes);
         $customer_id = $request->input('customer_id');
         $customer = DB::select('select * from customers where id =' . $customer_id);
-
+        
         $money_updated = $customer[0]->money_spent + $request->input('price');
         $rent_number = $customer[0]->number_of_rent + 1;
 

@@ -8,6 +8,7 @@ use App\Imports\CustomerImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use App\Models\Reservation;
+use Illuminate\Support\Facades\DB;
 use Laravolt\Avatar\Avatar;
 
 
@@ -74,6 +75,14 @@ class CustomerController extends Controller
              'find_us' => [],
              'referal_points' => []
         ]);
+        if($request->referal_id != null){
+            $referal = DB::select('select * from customers where id =' . $request->referal_id);
+            var_dump($referal);
+            $referal_points = $referal[0]->referal_points + 10;
+            DB::table('customers')
+                    ->where('id', '=', $request->referal_id)
+                    ->update(['referal_points' => $referal_points]);
+        }
 
         Customer::create($attributes);
 

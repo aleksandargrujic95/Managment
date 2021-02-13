@@ -64,7 +64,7 @@
               </div>
               <div class="form-group col-md-3">
                 <label for="inputReferal">Referal Points</label>
-                <input type="number" class="form-control" name="referal_points">
+                <input type="number" class="form-control" name="referal_points" value="0">
               </div>
             </div>
             <div class="form-row">
