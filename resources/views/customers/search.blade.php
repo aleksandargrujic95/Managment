@@ -71,9 +71,8 @@
                     <button class="dlt-btn" type="submit" class="delete" ><i class="fa fa-trash-o" aria-hidden="true"  title="Delete"></i></button>
                   </form>
                   <form action="{{ route('reservations.create') }}" method="GET" class="dlt-form">
-                    @csrf
                     <input type="text" hidden value="{{$customer->id}}" name="customer_id">
-                    <button class="rsvr-btn" type="submit" class="delete" ><i class="fa fa-calendar" aria-hidden="true"  title="Submit"></i></button>
+                    <button class="rsvr-btn" type="submit" class="delete" ><i class="fa fa-calendar" aria-hidden="true"  title="Add Reservation"></i></button>
                   </form>
                 </td>
               </tr>
