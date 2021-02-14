@@ -17,7 +17,7 @@ class CreateReservationsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamp('date_of_rent', 6);
             $table->timestamp('date_of_return', 6);
-            $table->string('price');
+            $table->float('price');
             $table->boolean('active');           
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('product_id');
