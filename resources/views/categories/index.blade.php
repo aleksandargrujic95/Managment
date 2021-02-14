@@ -5,51 +5,37 @@
       <header class="therichpost-container" style="padding-top:22px">
         <h5><b><i class="fa fa-gamepad"></i> Categories</b></h5>
       </header>
-      <div class="therichpost-row-padding therichpost-margin-bottom">
-      </div>
-      <div class="container">
-        <div class="table-responsive">
-          <div class="table-wrapper">
-            <div class="table-title">
-              <div class="row">
-                <div class="col-xl-9">
-                  <h2>Manage <b>Categories</b></h2>
-                </div>
-                <div class="col-xs-6 ">
-                  <a href="/categories/create" class="btn btn-success" ><i class="material-icons"></i> <span>Add New Category</span></a>					
-                </div>
+      <div class="therichpost-row-padding therichpost-margin-bottom"> 
+
+          @php
+            $counter = 1;    
+          @endphp
+          @foreach ($categories as $category)
+            @if ($counter%3 == 1)
+              <div class="card-group">
+            @endif
+            <div class="card category-card col-md-3" >
+              <div class="category-image">
+                <img class="card-img-top" src="{{url('/images/' .$category->image)}}" alt="{{$category->name}}">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{$category->name}}</h5>
+                <a href="/categories/{{$category->id}}" class="btn btn-primary">Products</a>
+                <a href="/categories/{{$category->id}}/edit" class="btn btn-success">Edit</a>
+                <form action="{{ route('categories.destroy', $category->id) }}" method="POST" class="dlt-form">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
               </div>
             </div>
-            <table class="table table-striped table-hover">
-              <thead>
-                <tr>
-                  <th>Image</th>
-                  <th>Name</th>                
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach ($categories as $category)
-                <tr>
-                  <td><img src="{{url('/images/' .$category->image)}}" alt=""></td>                 
-                      <td>{{$category->name}}</td>
-                  <td>
-                    <a href="{{ route('categories.edit', $category->id) }}" class="edit" ><i class="fa fa-pencil" data-toggle="tooltip" title="Edit"></i></a>
-                    <form action="{{ route('categories.destroy', $category->id) }}" method="POST" class="dlt-form">
-                      @csrf
-                      @method('DELETE')
-                      <button class="dlt-btn" type="submit" class="delete" ><i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" title="Delete"></i></button>
-                    </form>
-                  </td>
-                </tr>
-                @endforeach
-                
-              </tbody>
-            </table>
-            
-          </div>
-        </div>        
-        </div>
-     
+            @if ($counter%3 == 0)
+              </div>
+            @endif
+            @php
+                $counter++;
+            @endphp
+          @endforeach
+      </div>
         {!! $categories->links() !!}
 </x-layout>

@@ -51,7 +51,7 @@ class ReservationController extends Controller
         $today_parsed = Carbon::parse($today)->format('Y-m-d');
         $customer_id = $request->customer_id;
         $customer = DB::select('select * from customers where id =' . $customer_id);
-        $products = $product->all();
+        $products = Product::where('rented', 1)->get();
 
 
         return view('/reservations.create' , compact('today_parsed','customer_id', 'customer', 'products'));
@@ -76,6 +76,7 @@ class ReservationController extends Controller
 
         Reservation::create($attributes);
         $customer_id = $request->input('customer_id');
+        $product_id = $request->input('product_id');
         $customer = DB::select('select * from customers where id =' . $customer_id);
         
         $money_updated = $customer[0]->money_spent + $request->input('price');
@@ -84,6 +85,10 @@ class ReservationController extends Controller
         DB::table('customers')
                     ->where('id', '=', $customer_id)
                     ->update(['money_spent' => $money_updated, 'number_of_rent' => $rent_number]);
+
+        DB::table('products')
+                    ->where('id', '=', $product_id)
+                    ->update(['rented' => 0]);           
 
         notify()->success('Reservation created sucessfully');
 

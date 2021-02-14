@@ -37,12 +37,38 @@
                       <input type="Address" class="form-control" id="inputAddress" placeholder="Address" name="address">
                     </div>
                     <div class="form-group mx-sm-2 mb-2">
-                      <label for="inputPlace" class="sr-only">Place</label>
-                      <input type="text" class="form-control" id="inputPlace" placeholder="Place" name="place">
+                      <select name="place" class="form-control" id="place">
+                        <option selected>Place</option>
+                        <option value="Čukarica">Čukarica</option>
+                        <option value="Novi Beograd">Novi Beograd</option>
+                        <option value="Palilula">Palilula</option>
+                        <option value="Rakovica">Rakovica</option>
+                        <option value="Savski venac">Savski venac</option>
+                        <option value="Stari grad">Stari grad</option>
+                        <option value="Voždovac">Voždovac</option>
+                        <option value="Vračar">Vračar</option>
+                        <option value="Zemun">Zemun</option>
+                        <option value="Zvezdara">Zvezdara</option>
+                        <option value="Barajevo">Barajevo</option>
+                        <option value="Grocka">Grocka</option>
+                        <option value="Surčin">Surčin</option>
+                      </select>
                     </div>
                     <div class="form-group mx-sm-2 mb-2">
-                      <label for="inputJbk" class="sr-only">Jbk</label>
-                      <input type="text" class="form-control" id="inputJbk" placeholder="Jbk" name="jbk">
+                      <label for="inputID" class="sr-only">ID</label>
+                      <input type="text" class="form-control" id="inputID" placeholder="ID" name="id">
+                    </div>
+                    <div class="form-group mx-sm-2 mb-2">
+                      <label for="inputMoneySpent" class="sr-only">Money Spent</label>
+                      <input type="text" class="form-control" id="inputMoneySpent" placeholder="Money Spent" name="money_spent">
+                    </div>
+                    <div class="form-group mx-sm-2 mb-2">
+                      <label for="inputRentNumber" class="sr-only">Rent Number</label>
+                      <input type="text" class="form-control" id="inputRentNumber" placeholder="Rent Number" name="number_of_rent">
+                    </div>
+                    <div class="form-group mx-sm-2 mb-2">
+                      <label for="inputOldCustomers" class="sr-only">Last Rent</label>
+                      <input type="text" class="form-control" id="inputMoneySpent" placeholder="Last Rent" name="last_rent">
                     </div>
                     <button type="submit" class="customer-search-button" >  <i class="fa fa-search"></i></button>
                   </form>

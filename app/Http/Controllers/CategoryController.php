@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -62,9 +63,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Category $category, Product $product)
     {
-        return view('/categories.show', compact('category'));
+        $products = Product::where('category_id', $category->id)
+               ->get();
+        return view('/categories.show', compact('category', 'products'));
     }
 
     /**
@@ -87,8 +90,18 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+        $request->validate([
+            'name'=> ['required', 'min:2'],
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-        $category->update(request(['name']));
+        $image = time().'.'.$request->image->extension();
+        
+        $name = $request->name;
+
+        $request->image->move(public_path('images'), $image);
+
+        $category->update(['name' => $name, 'image' => $image]);
 
         notify()->success('Category updated sucessfully');    
 

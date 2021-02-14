@@ -24,13 +24,28 @@ class CustomerFilter extends ModelFilter
         return $this->where('phone_number', 'LIKE', "$phone%");
     }
 
-    public function jbk($jbk)
+    public function id($id)
     {
-        return $this->where('jbk', 'LIKE', "$jbk%");
+        return $this->where('id', 'LIKE', "$id%");
     }
 
     public function address($address)
     {
         return $this->where('address', 'LIKE', "%$address%");
+    }
+
+    public function place($place)
+    {
+        return $this->where('place', 'LIKE', "%$place%");
+    }
+
+    public function moneySpent($money_spent)
+    {
+        return $this->where('money_spent', '>=', "$money_spent");
+    }
+
+    public function rentNumber($number_of_rent)
+    {
+        return $this->where('number_of_rent', '>=', "$number_of_rent")->paginate(10);
     }
 }
