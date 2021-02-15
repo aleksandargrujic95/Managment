@@ -3,7 +3,12 @@
     <div class="table-body" class="therichpost-main" style="margin-left:300px;">
       <!-- Header -->
       <header class="therichpost-container" style="padding-top:22px">
-        <h5><b><i class="fa fa-gamepad"></i> Categories</b></h5>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-10"><h5><b><i class="fa fa-gamepad"></i> Categories</b></h5></div>
+            <div class="col-md-2"><a href="categories/create" class="btn btn-info">Add New Category</a></div>
+          </div>
+        </div>
       </header>
       <div class="therichpost-row-padding therichpost-margin-bottom"> 
 

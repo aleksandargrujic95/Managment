@@ -666,7 +666,10 @@ table.table .avatar {
 .modal form label {
     font-weight: normal;
 }
-.dlt-btn{
+
+
+ /* Custom Style */
+ .dlt-btn{
     all: unset;
     color: red;
 }
@@ -732,7 +735,7 @@ table.table .avatar {
     background: none;
 }
 .bgimg {
-    background-image: url("{{ asset('/images/background-landing.jpg') }}")
+    background-image: url("{{ asset('/images/background-landing.jpg') }}");
     min-height: 100%;
     background-position: center;
     background-size: cover;
@@ -747,7 +750,7 @@ table.table .avatar {
     background-color: #97e59a !important;
 }
 .rented{
-    background-color: #df7196 !important;
+    background-color: #e94f4f !important;
 }
 .bronze{
     color: #b08d57;
@@ -784,6 +787,18 @@ table.table .avatar {
 .chart-div{
     padding-top: 40px;
 }
+
+.product-image img{
+    height: 60px;
+}
+.loyality-h3{
+    font-size: 3pc;
+}
+
+.loyality-image img{
+    height: 60px;
+}
+
 
 
 
@@ -1478,6 +1493,9 @@ table.table .avatar {
 .therichpost-teal,.therichpost-hover-teal:hover{
     color:#fff!important;background-color:#009688!important
 }
+.therichpost-gray,.therichpost-hover-gray:hover{
+    background-color:#333333!important
+}
 
 .therichpost-yellow,.therichpost-hover-yellow:hover{
     color:#000!important;background-color:#ffeb3b!important
@@ -1738,4 +1756,5 @@ table.table .avatar {
     border-color:#ffffcc!important
 }
 .therichpost-border-pale-blue,.therichpost-hover-border-pale-blue:hover{border-color:#e7ffff!important}
+
 

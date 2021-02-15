@@ -24,8 +24,8 @@
                   <th>
 
                   </th>
-                  <th>Name</th>
                   <th>Category</th>
+                  <th>Name</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
@@ -35,8 +35,8 @@
                 <tr class="{{$product->rented ? 'lager' : 'rented'}}">
                   <td>
                   </td>
+                      <td class="product-image" ><img src="{{url('/images/' .$product->categories['image'])}}"></td>
                       <td>{{$product->name}}</td>
-                      <td>{{$product->category_id}}</td>
                       <td>{{$product->rented ? 'On lager' : 'Rented'}}</td>
                   <td>
                     <a href="{{ route('products.edit', $product->id) }}" class="edit" ><i class="fa fa-pencil"  title="Edit"></i></a>

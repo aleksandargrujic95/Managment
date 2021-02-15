@@ -36,7 +36,7 @@
                       <label for="inputAddress" class="sr-only">Address</label>
                       <input type="Address" class="form-control" id="inputAddress" placeholder="Address" name="address">
                     </div>
-                    <div class="form-group mx-sm-2 mb-2">
+                    {{-- <div class="form-group mx-sm-2 mb-2">
                       <select name="place" class="form-control" id="place">
                         <option selected>Place</option>
                         <option value="Čukarica">Čukarica</option>
@@ -53,7 +53,7 @@
                         <option value="Grocka">Grocka</option>
                         <option value="Surčin">Surčin</option>
                       </select>
-                    </div>
+                    </div> --}}
                     <div class="form-group mx-sm-2 mb-2">
                       <label for="inputID" class="sr-only">ID</label>
                       <input type="text" class="form-control" id="inputID" placeholder="ID" name="id">
@@ -62,14 +62,14 @@
                       <label for="inputMoneySpent" class="sr-only">Money Spent</label>
                       <input type="text" class="form-control" id="inputMoneySpent" placeholder="Money Spent" name="money_spent">
                     </div>
-                    <div class="form-group mx-sm-2 mb-2">
+                    {{-- <div class="form-group mx-sm-2 mb-2">
                       <label for="inputRentNumber" class="sr-only">Rent Number</label>
                       <input type="text" class="form-control" id="inputRentNumber" placeholder="Rent Number" name="number_of_rent">
                     </div>
                     <div class="form-group mx-sm-2 mb-2">
                       <label for="inputOldCustomers" class="sr-only">Last Rent</label>
                       <input type="text" class="form-control" id="inputMoneySpent" placeholder="Last Rent" name="last_rent">
-                    </div>
+                    </div> --}}
                     <button type="submit" class="customer-search-button" >  <i class="fa fa-search"></i></button>
                   </form>
                 </div>
@@ -81,9 +81,9 @@
               <tr>
                 <th>Avatar</th>
                 <th>id</th>
-                <th>Place</th>
+                <th>Name</th>
                 <th>Addresss</th>
-                <th>Name</th>                 
+                <th>Place</th>                 
                 <th>Phone number</th>
                 <th>Money spent</th>
                 <th>Number of rents</th>

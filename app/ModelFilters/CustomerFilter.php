@@ -14,19 +14,19 @@ class CustomerFilter extends ModelFilter
     */
     public $relations = [];
 
-    public function name($name)
-    {
-        return $this->where('name', 'LIKE', "%$name%");
-    }
+    // public function name($name)
+    // {
+    //     return $this->where('name', 'LIKE', "%$name%");
+    // }
 
-    public function phoneNumber($phone)
-    {
-        return $this->where('phone_number', 'LIKE', "$phone%");
-    }
+    // public function phoneNumber($phone)
+    // {
+    //     return $this->where('phone_number', 'LIKE', "$phone%");
+    // }
 
     public function id($id)
     {
-        return $this->where('id', 'LIKE', "$id%");
+        return $this->where('id', $id);
     }
 
     public function address($address)
@@ -34,18 +34,18 @@ class CustomerFilter extends ModelFilter
         return $this->where('address', 'LIKE', "%$address%");
     }
 
-    public function place($place)
-    {
-        return $this->where('place', 'LIKE', "%$place%");
-    }
+    // public function place($place)
+    // {
+    //     return $this->where('place', 'LIKE', "%$place%");
+    // }
 
     public function moneySpent($money_spent)
     {
         return $this->where('money_spent', '>=', "$money_spent");
     }
 
-    public function rentNumber($number_of_rent)
-    {
-        return $this->where('number_of_rent', '>=', "$number_of_rent")->paginate(10);
-    }
+    // public function rentNumber($number_of_rent)
+    // {
+    //     return $this->where('number_of_rent', '>=', "$number_of_rent");
+    // }
 }
