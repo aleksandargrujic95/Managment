@@ -27,11 +27,11 @@
               <input type="text" class="form-control" id="inputComment" placeholder="Add Product Comment" name="comment">
             </div>
             <div class="form-row">
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-3">
                 <label for="inputSerialKey">Serial Key</label>
                 <input type="text" class="form-control" id="inputSerialKey" name="serial_key">
               </div>
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-3">
                   <label class="mr-sm-2" for="inlineFormCustomSelect">Category</label>
                   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect"  name='category_id'>
                     <option selected>Choose...</option>
@@ -40,16 +40,20 @@
                       @endforeach
                   </select>
               </div>
-              <div class="form-group col-md-2">
-                <label for="inputCondition">Condition</label>
-                <select id="inputCondition" class="form-control" name="condition">
-                  <option selected></option>
-                  <option selected>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
+              <div class="form-group col-md-6">
+                <div class="rate">
+                  <p>Condition:</p>
+                  <input type="radio" id="star5" name="condition" value="5" />
+                  <label for="star5" title="text">5 stars</label>
+                  <input type="radio" id="star4" name="condition" value="4" />
+                  <label for="star4" title="text">4 stars</label>
+                  <input type="radio" id="star3" name="condition" value="3" />
+                  <label for="star3" title="text">3 stars</label>
+                  <input type="radio" id="star2" name="condition" value="2" />
+                  <label for="star2" title="text">2 stars</label>
+                  <input type="radio" id="star1" name="condition" value="1" />
+                  <label for="star1" title="text">1 star</label>
+                </div>
               </div>
             </div>
             <button type="submit" class="btn btn-primary">Create Product</button>

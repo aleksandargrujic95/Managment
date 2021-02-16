@@ -20,7 +20,6 @@
                   </div>
               </div>
             </div>
-           @if (count($customers_filtered) > 0)
 
            <table class="table table-striped table-hover">
             <thead>
@@ -38,7 +37,7 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($customers_filtered as $customer)
+              @foreach ($customers as $customer)
               <tr>             
                 <td>
                   <a href="{{ route('customers.show', $customer->id) }}"> <img src="{{$avatar->create($customer->name)->toBase64()}}"></a>
@@ -64,21 +63,20 @@
                 <td>
                   <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->number_of_rent}}</a>
                 </td>
-                <td>
-                  <a href="{{ route('customers.show', $customer->id) }}"> 
-                    @if ($customer->money_spent < 20000)
-                      <i class="fas fa-crown black"></i>
-                    @elseif($customer->money_spent >= 20000 && $customer->money_spent < 30000)
-                      <i class="fas fa-crown bronze"></i>
-                    @elseif($customer->money_spent >= 30000 && $customer->money_spent < 50000)
-                      <i class="fas fa-crown silver"></i>
-                    @elseif($customer->money_spent >= 50000 && $customer->money_spent < 100000)
-                      <i class="fas fa-crown gold"></i>
-                    @elseif($customer->money_spent >= 100000)
-                      <i class="fas fa-crown platinum"></i>
-                    @endif
-                  </a>
-                </td>
+                <td class="customer-rank">
+                    <a  href="{{ route('customers.show', $customer->id) }}"> 
+                      @if ($customer->money_spent < 20000)
+                      @elseif($customer->money_spent >= 20000 && $customer->money_spent < 30000)
+                        <img  src="{{url('/images/silver.png')}}" alt="silver">    
+                      @elseif($customer->money_spent >= 30000 && $customer->money_spent < 50000)
+                        <img  src="{{url('/images/gold.png')}}" alt="gold">    
+                      @elseif($customer->money_spent >= 50000 && $customer->money_spent < 100000)
+                        <img  src="{{url('/images/platinum.png')}}" alt="platinum">    
+                      @elseif($customer->money_spent >= 100000)
+                        <img  src="{{url('/images/diamond.png')}}" alt="diamond">    
+                      @endif
+                    </a>
+                  </td>
                 <td class="action-td">
                   <a href="{{ route('customers.edit', $customer->id) }}" class="edit" ><i class="fa fa-pencil"  title="Edit"></i></a>
                   <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" class="dlt-form">
@@ -97,14 +95,6 @@
             </tbody>
             
           </table>
-               
-           @else
-
-           <h1>No Results Found </h1>
-
-           <a href="/customers">Back to all customers</a>
-               
-           @endif
         </div>        
         </div>
      

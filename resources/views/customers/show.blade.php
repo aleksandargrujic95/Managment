@@ -40,7 +40,7 @@
                       <td>{{$customer->address}}</td>
                       <td>{{$customer->name}}</td>
                       <td>{{$customer->phone_number}}</td>
-                      <td>{{$customer->money_spent}}</td>
+                      <td>RSD {{$customer->money_spent}}</td>
                       <td>{{$customer->comment}}</td>
                   <td class="action-td">
                     <a href="{{ route('customers.edit', $customer->id) }}" class="edit" ><i class="fa fa-pencil"  title="Edit"></i></a>

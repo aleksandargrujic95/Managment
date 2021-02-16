@@ -44,6 +44,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/customer/import', [CustomerController::class, 'import']);
     Route::get('customer/search', [CustomerController::class, 'search']);
     Route::get('customer/loyal', [CustomerController::class, 'loyal']);
+    Route::get('customer/membership', [CustomerController::class, 'membership']);
 
     // Reservations Routes
     Route::resource('reservations', ReservationController::class);

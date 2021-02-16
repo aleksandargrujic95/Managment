@@ -24,7 +24,10 @@
                   
                 </ul>
                 <div class="card-body">
-                  <a href="#" class="card-link btn">See All</a>
+                   <form action="/customer/membership" method="GET">
+                    <input type="text" name="membership" id="membership" hidden value="1">
+                    <button type="submit" class="card-link btn">See All</button>
+                  </form>
                 </div>
             </div></div>
             <div class="col"><div class="card gray-div" style="width: 22rem;">
@@ -42,7 +45,10 @@
                   
                 </ul>
                 <div class="card-body">
-                  <a href="#" class="card-link btn">See All</a>
+                   <form action="/customer/membership" method="GET">
+                    <input type="text" name="membership" id="membership" hidden value="2">
+                    <button type="submit" class="card-link btn">See All</button>
+                  </form>
                 </div>
             </div></div>
             <div class="col"><div class="card gray-div" style="width: 22rem;">
@@ -59,7 +65,10 @@
                   
                 </ul>
                 <div class="card-body">
-                  <a href="#" class="card-link btn">See All</a>
+                  <form action="/customer/membership" method="get">
+                    <input type="text" name="membership" id="membership" hidden value="3">
+                    <button type="submit" class="card-link btn">See All</button>
+                  </form>
                 </div>
             </div></div>
             <div class="col"><div class="card gray-div" style="width: 22rem;">
@@ -76,7 +85,10 @@
                   
                 </ul>
                 <div class="card-body">
-                  <a href="#" class="card-link btn">See All</a>
+                  <form action="/customer/membership" method="GET">
+                    <input type="text" name="membership" id="membership" hidden value="4">
+                    <button type="submit" class="card-link btn">See All</button>
+                  </form>
                 </div>
             </div></div>
           </div>

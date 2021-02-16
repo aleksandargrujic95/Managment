@@ -43,6 +43,24 @@ class CustomerController extends Controller
         return view('customers.loyal', compact('silver_customers_count','diamond_customers_count','gold_customers_count','avatar','platinum_customers_count'));
     }
 
+    public function membership(Customer $customer, Request $request)
+    {
+        $avatar = new Avatar(); 
+
+        $id = $request->membership;
+
+        if($id == 1){
+            $customers = $customer->where('money_spent', '>=', 20000)->where('money_spent', '<' , 30000 )->get();
+        }elseif($id == 2){
+            $customers = $customer->where('money_spent', '>=', 30000)->where('money_spent', '<' , 50000 )->get();
+        }elseif ($id == 3) {
+            $customers = $customer->where('money_spent', '>=', 50000)->where('money_spent', '<' , 100000 )->get();
+        }else{
+            $customers = $customer->where('money_spent', '>=', 100000)->get();
+        }
+        return view('customers.membership', compact('avatar','customers'));
+    }
+
 
     public function test()
     {

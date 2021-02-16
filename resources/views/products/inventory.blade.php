@@ -25,11 +25,11 @@
 
                   </th>
                   <th>ID</th>
+                  <th>Category</th>
                   <th>Serial Number</th>
                   <th>Date of Purchase</th>
                   <th>Condition</th>
                   <th>Comment</th>
-                  <th>Category</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -39,11 +39,11 @@
                   <td>
                   </td>
                       <td>{{$product->id}}</td>
+                      <td class="product-image" ><img src="{{url('/images/' .$product->categories['image'])}}"></td>
                       <td>{{$product->serial_key}}</td>
                       <td>{{$product->date_of_purchase}}</td>
                       <td>{{$product->condition}}</td>
                       <td>{{$product->comment}}</td>
-                      <td>{{$product->category_id}}</td>
                   <td>
                     <a href="{{ route('products.edit', $product->id) }}" class="edit" ><i class="fa fa-pencil"  title="Edit"></i></a>
                     <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="dlt-form">
