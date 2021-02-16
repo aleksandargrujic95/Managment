@@ -802,8 +802,29 @@ table.table .avatar {
 .gray-div{
     background-color:#333333!important;
 }
-
-
+.gray-div img{
+    width: 30% !important;
+    margin: auto;
+}
+.rank-div{
+    color: #fff;
+}
+.customer-rank img{
+    width: 40px;
+}
+.rank-title{
+    font-size: 1.5pc;
+    text-align: center;
+}
+.card-image-div{
+    height: 100px;
+}
+.list-group-item{
+    background-color: #333;
+}
+.card-body .btn{
+    background-color: #8EA7BD;
+}
 
 
 @media (min-width:601px){

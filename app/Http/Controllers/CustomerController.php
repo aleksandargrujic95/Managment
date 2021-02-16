@@ -30,13 +30,17 @@ class CustomerController extends Controller
 
     public function loyal(Customer $customer, Request $request)
     {
-        $avatar = new Avatar();
+        $avatar = new Avatar();  
 
-        $loyality_price = 30000;
+        $silver_customers_count = $customer->where('money_spent', '>=', 20000)->where('money_spent', '<' , 30000 )->count();
 
-        $customers = $customer->where('money_spent', '>=', $loyality_price)->paginate(5);
+        $gold_customers_count = $customer->where('money_spent', '>=', 30000)->where('money_spent', '<' , 50000 )->count();
 
-        return view('customers.loyal', compact('customers','avatar'));
+        $platinum_customers_count = $customer->where('money_spent', '>=', 50000)->where('money_spent', '<' , 100000 )->count();
+
+        $diamond_customers_count = $customer->where('money_spent', '>=', 100000)->count();
+
+        return view('customers.loyal', compact('silver_customers_count','diamond_customers_count','gold_customers_count','avatar','platinum_customers_count'));
     }
 
 

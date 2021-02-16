@@ -16,10 +16,10 @@
                 <div class="col-xl-3">
                   <h2>Manage <b>Customers</b></h2>
                 </div> 
-                <div class="col-xl-5 ">
+                <div class="col-xl-7 ">
                   <a href="/customers/create" class="btn btn-success" ><i class="material-icons"></i> <span>Add New Customer</span></a>					
                 </div>
-                <div class="col-xl-4 ">
+                <div class="col-xl-2 ">
                   <a href="/customer/loyal" class="btn btn-success" ><i class="material-icons"></i> <span>Loyal Customers</span></a>					
                 </div>
                 <div class="input-group rounded col-xl-12 search-fields">
@@ -118,18 +118,17 @@
                     <td>
                       <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->number_of_rent}}</a>
                     </td>
-                    <td>
-                      <a href="{{ route('customers.show', $customer->id) }}"> 
+                    <td class="customer-rank">
+                      <a  href="{{ route('customers.show', $customer->id) }}"> 
                         @if ($customer->money_spent < 20000)
-                          <i class="fas fa-crown black"></i>
                         @elseif($customer->money_spent >= 20000 && $customer->money_spent < 30000)
-                          <i class="fas fa-crown bronze"></i>
+                          <img  src="{{url('/images/silver.png')}}" alt="silver">    
                         @elseif($customer->money_spent >= 30000 && $customer->money_spent < 50000)
-                          <i class="fas fa-crown silver"></i>
+                          <img  src="{{url('/images/gold.png')}}" alt="gold">    
                         @elseif($customer->money_spent >= 50000 && $customer->money_spent < 100000)
-                          <i class="fas fa-crown gold"></i>
+                          <img  src="{{url('/images/platinum.png')}}" alt="platinum">    
                         @elseif($customer->money_spent >= 100000)
-                          <i class="fas fa-crown platinum"></i>
+                          <img  src="{{url('/images/diamond.png')}}" alt="diamond">    
                         @endif
                       </a>
                     </td>
