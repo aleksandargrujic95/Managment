@@ -178,6 +178,10 @@ class ReservationController extends Controller
                     ->where('id', '=', $reservation->product_id)
                     ->update(['rented' => 1]);
 
+        DB::table('customers')
+                    ->where('id', '=', $customer[0]->id)
+                    ->update(['number_of_rent' => $customer[0]->number_of_rent - 1]);
+
         $reservation->delete();
 
         notify()->success('Reservation removed sucessfully');
