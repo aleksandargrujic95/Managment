@@ -19,9 +19,14 @@ class CustomerFilter extends ModelFilter
         return $this->where('name', 'LIKE', "%$name%");
     }
 
+    public function address($address)
+    {
+        return $this->where('address', 'LIKE', "%$address%");
+    }
+
     public function phoneNumber($phone)
     {
-        return $this->where('phone_number', 'LIKE', "$phone%");
+        return $this->where('phone_number', 'LIKE', "%$phone%");
     }
 
     public function id($id)
@@ -29,10 +34,6 @@ class CustomerFilter extends ModelFilter
         return $this->where('id', $id);
     }
 
-    public function address($address)
-    {
-        return $this->where('address', 'LIKE', "%$address%");
-    }
 
     // public function place($place)
     // {

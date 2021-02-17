@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group mx-sm-2 mb-2">
                       <label for="inputAddress" class="sr-only">Address</label>
-                      <input type="Address" class="form-control" id="inputAddress" placeholder="Address" name="address">
+                      <input type="text" class="form-control" id="inputAddress" placeholder="Address" name="address">
                     </div>
                     {{-- <div class="form-group mx-sm-2 mb-2">
                       <select name="place" class="form-control" id="place">

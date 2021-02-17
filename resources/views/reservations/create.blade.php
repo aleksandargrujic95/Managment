@@ -26,7 +26,7 @@
               <div class="col-md-7">
                 <label for="price">Price:</label>
                   <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
+                    <span class="input-group-text">RSD</span>
                   <input type="text" name="price" class="form-control" aria-label="Amount (to the nearest dollar)">
                 </div>
               </div>

@@ -23,7 +23,7 @@ class CustomerController extends Controller
     {
         $avatar = new Avatar();
 
-        $customers = Customer::paginate(5);
+        $customers = Customer::orderBy('id', 'asc')->paginate(5);
 
         return view('customers.index', compact('customers','avatar'));
     }
