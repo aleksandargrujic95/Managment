@@ -74,6 +74,13 @@ class ReservationController extends Controller
             'customer_id' => ['required']
         ]);
 
+        $today = Carbon::now();
+        $date_of_return =  Carbon::parse($request->date_of_rent)->format('Y-m-d');
+
+        if($date_of_return < $today ){
+            $attributes['active'] =  1;
+        }
+
         Reservation::create($attributes);
         $customer_id = $request->input('customer_id');
         $product_id = $request->input('product_id');
