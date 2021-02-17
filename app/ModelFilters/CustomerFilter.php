@@ -14,15 +14,15 @@ class CustomerFilter extends ModelFilter
     */
     public $relations = [];
 
-    // public function name($name)
-    // {
-    //     return $this->where('name', 'LIKE', "%$name%");
-    // }
+    public function name($name)
+    {
+        return $this->where('name', 'LIKE', "%$name%");
+    }
 
-    // public function phoneNumber($phone)
-    // {
-    //     return $this->where('phone_number', 'LIKE', "$phone%");
-    // }
+    public function phoneNumber($phone)
+    {
+        return $this->where('phone_number', 'LIKE', "$phone%");
+    }
 
     public function id($id)
     {
