@@ -93,9 +93,15 @@ class ReservationController extends Controller
                     ->where('id', '=', $customer_id)
                     ->update(['money_spent' => $money_updated, 'number_of_rent' => $rent_number]);
 
-        DB::table('products')
+        if($date_of_return > $today ){
+            DB::table('products')
                     ->where('id', '=', $product_id)
-                    ->update(['rented' => 0]);           
+                    ->update(['rented' => 0]); 
+        }else{
+            DB::table('products')
+                    ->where('id', '=', $product_id)
+                    ->update(['rented' => 1]);
+        }         
 
         notify()->success('Reservation created sucessfully');
 
@@ -167,6 +173,10 @@ class ReservationController extends Controller
         DB::table('customers')
                     ->where('id', '=', $customer_id)
                     ->update(['money_spent' => $money_updated]);
+        
+        DB::table('products')
+                    ->where('id', '=', $reservation->product_id)
+                    ->update(['rented' => 1]);
 
         $reservation->delete();
 
