@@ -42,8 +42,8 @@
                     <td>{{$reservation->product->name}}, {{$reservation->product->category_id}}</td>
                     <td>{{$reservation->active}}</td>
                     <td>{{$reservation->price}}</td>
-                    <td>{{$reservation->date_of_rent->toDateString()}}</td>
-                    <td>{{$reservation->date_of_return->toDateString()}}</td>
+                    <td>{{$reservation->date_of_rent->toFormattedDateString()}}</td>
+                    <td>{{$reservation->date_of_return->toFormattedDateString()}}</td>
                 <td class="action-td">
                   <a href="{{ route('reservations.edit', $reservation->id) }}" class="edit" ><i class="fa fa-pencil"  title="Edit"></i></a>
                   <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST" class="dlt-form">

@@ -9,6 +9,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SmsController;
 use App\Imports\CustomerImport;
 use App\Models\Customer;
 use App\Models\Reservation;
@@ -60,7 +61,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     // Notifications Routes
     Route::resource('notifications', NotificationController::class);
 
-    Route::get('/test/test', [CustomerController::class, 'test']);
+    //Message Routes
+    Route::get('send/message', [SmsController::class, 'sendMessage']);
 
 });
 

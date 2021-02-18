@@ -249,7 +249,9 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
         <!-- Top container -->
 <div class="therichpost-bar therichpost-top therichpost-white therichpost-large" style="z-index:4">
   <button class="therichpost-bar-item therichpost-button therichpost-hide-large therichpost-hover-none therichpost-hover-text-light-grey" onclick="therichpost_open()"><i class="fa fa-bars"></i>  Menu</button>
-  <span class="therichpost-bar-item therichpost-right"><img src="{{asset('images/logo.png')}}" alt=""></span>
+  <span class="therichpost-bar-item therichpost-right">
+    <img src="{{asset('images/logo.png')}}" alt="">
+  </span>
 </div>
 <!-- Sidebar/menu -->
 <nav class="therichpost-sidebar therichpost-collapse therichpost-white therichpost-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>

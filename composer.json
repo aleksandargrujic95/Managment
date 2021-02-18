@@ -15,6 +15,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^8.12",
         "laravel/jetstream": "^1.6",
+        "laravel/nexmo-notification-channel": "^2.5",
         "laravel/sanctum": "^2.8",
         "laravel/tinker": "^2.5",
         "laravolt/avatar": "^4.0",
@@ -22,14 +23,17 @@
         "maatwebsite/excel": "^3.1",
         "mckenziearts/laravel-notify": "^2.1",
         "nesbot/carbon": "^2.43",
+        "nexmo/laravel": "^2.4",
         "phpoffice/phpspreadsheet": "^1.15",
         "spatie/laravel-query-builder": "^3.3",
-        "tucker-eric/eloquentfilter": "^2.4"
+        "tucker-eric/eloquentfilter": "^2.4",
+        "vonage/client": "^2.4"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^0.0.5",
+        "laravel/ui": "^3.2",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3"
