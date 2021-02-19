@@ -10,8 +10,8 @@ class SmsController extends Controller
     public function sendMessage()
     {
         Nexmo::message()->send([
-            'to'  => '0600699994',
-            'from' => '0600699994',
+            'to'  => '381649772676',
+            'from' => '381600699994',
             'text' => 'Test message'
         ]);
 

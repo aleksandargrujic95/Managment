@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Product;
 use App\Models\Reservation;
@@ -41,7 +42,7 @@ class ReservationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Reservation $reservation, Request $request, Product $product)
+    public function create(Reservation $reservation, Request $request, Product $product, Category $category)
     {
         date_default_timezone_set('Europe/Belgrade');
         $today = Carbon::now();
@@ -51,10 +52,11 @@ class ReservationController extends Controller
         $today_parsed = Carbon::parse($today)->format('Y-m-d');
         $customer_id = $request->customer_id;
         $customer = DB::select('select * from customers where id =' . $customer_id);
-        $products = Product::where('rented', 1)->get();
+        $products = Product::where('rented', 1)->orderBy('id', 'asc')->get();
+        $categories = $category->all();
 
 
-        return view('/reservations.create' , compact('today_parsed','customer_id', 'customer', 'products'));
+        return view('/reservations.create' , compact('today_parsed','customer_id', 'customer', 'products','categories'));
     }
 
     /**
