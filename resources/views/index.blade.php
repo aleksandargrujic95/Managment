@@ -46,19 +46,19 @@
         <h4>Categories</h4>
       </div>
     </div>
-    {{-- <div class="container-fluid">
+     <div class="container-fluid">
       <div class="row chart-div">
-        <div class="col-md-4">{!! $chart_reservations->container() !!}</div>
+        {{-- <div class="col-md-4">{!! $chart_reservations->container() !!}</div> --}}
         <div class="col-md-4">{!! $chart_customers->container() !!}</div>
       </div>
-    </div> --}}
+    </div> 
   </div>
 
     {{-- <script src="{{ $chart_reservations->cdn() }}"></script>
 
-    {{ $chart_reservations->script() }}
+    {{ $chart_reservations->script() }} --}}
 
     <script src="{{ $chart_customers->cdn() }}"></script>
 
-    {{ $chart_customers->script() }} --}}
+    {{ $chart_customers->script() }} 
 </x-layout>

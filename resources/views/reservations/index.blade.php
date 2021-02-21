@@ -32,6 +32,7 @@
                 <th>Date of rent:</th>
                 <th>Date of return:</th>
                 <th>Action</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody class="current-reservations">
@@ -39,11 +40,12 @@
               <tr>             
                     <td>{{$reservation->id}}</td>    
                     <td>{{$reservation->customer->name}}</td>
-                    <td>{{$reservation->product->name}}, {{$reservation->product->category_id}}</td>
+                    <td>{{$reservation->product->name}}</td>
                     <td>{{$reservation->active}}</td>
-                    <td>{{$reservation->price}}</td>
+                    <td>{{number_format($reservation->price, 2, ',', '.')}}</td>
                     <td>{{$reservation->date_of_rent->toFormattedDateString()}}</td>
                     <td>{{$reservation->date_of_return->toFormattedDateString()}}</td>
+                    <th>{{$reservation->customer_id}}</th>
                 <td class="action-td">
                   <a href="{{ route('reservations.edit', $reservation->id) }}" class="edit" ><i class="fa fa-pencil"  title="Edit"></i></a>
                   <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST" class="dlt-form">

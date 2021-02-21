@@ -41,7 +41,7 @@
                     <td>{{$reservation->customer->name}}</td>
                     <td>{{$reservation->product_id}}</td>
                     <td>{{$reservation->active}}</td>
-                    <td>{{$reservation->price}}</td>
+                    <td>{{number_format($reservation->price, 2, ',', '.')}}</td>
                     <td>{{$reservation->date_of_rent}}</td>
                     <td>{{$reservation->date_of_return}}</td>
                 <td class="action-td">
@@ -51,11 +51,7 @@
                     @method('DELETE')
                     <button class="dlt-btn" type="submit" class="delete" ><i class="fa fa-trash-o" aria-hidden="true"  title="Delete"></i></button>
                   </form>
-                  <form action="{{ route('reservations.create') }}" method="GET" class="dlt-form">
-                    @csrf
-                    <input type="text" hidden value="{{$reservation->id}}" name="reservation_id">
-                    <button class="rsvr-btn" type="submit" class="delete" ><i class="fa fa-calendar" aria-hidden="true"  title="Submit"></i></button>
-                  </form>
+                  
                 </td>
               </tr>
               @endforeach

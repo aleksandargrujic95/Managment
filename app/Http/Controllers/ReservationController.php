@@ -84,6 +84,8 @@ class ReservationController extends Controller
         }
 
         Reservation::create($attributes);
+
+        //Update
         $customer_id = $request->input('customer_id');
         $product_id = $request->input('product_id');
         $customer = DB::select('select * from customers where id =' . $customer_id);
@@ -127,9 +129,16 @@ class ReservationController extends Controller
      * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Reservation $reservation)
+    public function edit(Category $category, Request $request, Reservation $reservation)
     {
-        return view('reservations.edit', compact($reservation));
+        $today = Carbon::now();
+
+        $products = Product::where('rented', 1)->orderBy('id', 'asc')->get();
+        $today_parsed = Carbon::parse($today)->format('Y-m-d');
+        $categories = $category->all();
+        $reservation = $reservation;
+
+        return view('reservations.edit', compact('today_parsed', 'products','categories','reservation'));
     }
 
     /**
@@ -141,16 +150,47 @@ class ReservationController extends Controller
      */
     public function update(Request $request, Reservation $reservation)
     {
-        $request([
-            'product_id' => ['required'],
-            'date_of_rent' => ['required'],
-            'date_of_return' => ['required'],
-            'customer_id' => ['required']
-        ]);
 
-        $reservation->update($request->all());
+        $today = Carbon::now();
+        $date_of_rent =  Carbon::parse($request->date_of_rent)->format('Y-m-d');
+        $date_of_return =  Carbon::parse($request->date_of_return)->format('Y-m-d');
+        
 
-        notify()->success('Reservation updated sucessfully');
+        if($date_of_return < $today ){
+            $active =  1;
+        }
+        $product_id = $request->input('product_id');
+        $price = $request->input('price');
+        $customer_id = $request->input('customer_id');
+
+        $reservation->update(request([
+            'product_id',
+            'date_of_rent',
+            'date_of_return',
+            'price',
+            'active',
+            'customer_id'
+        ]));
+
+        //Update
+        $customer = DB::select('select * from customers where id =' . $customer_id);
+        
+        $money_updated = $customer[0]->money_spent + $request->input('price');
+        $rent_number = $customer[0]->number_of_rent + 1;
+
+        DB::table('customers')
+                    ->where('id', '=', $customer_id)
+                    ->update(['money_spent' => $money_updated, 'number_of_rent' => $rent_number]);
+
+        if($date_of_return > $today ){
+            DB::table('products')
+                    ->where('id', '=', $product_id)
+                    ->update(['rented' => 0]); 
+        }else{
+            DB::table('products')
+                    ->where('id', '=', $product_id)
+                    ->update(['rented' => 1]);
+        }         
 
         return redirect('/reservations');
     }

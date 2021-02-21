@@ -92,7 +92,7 @@
                           <td>{{$reservation->customer->name}}</td>
                           <td>{{$reservation->product->name}}</td>
                           <td>{{($reservation->active) ? 'Collected'  : "Active"}}</td>
-                          <td>{{$reservation->price}}</td>
+                          <td>{{number_format($reservation->price, 2, ',', '.')}}</td>
                           <td>{{$reservation->date_of_rent->toFormattedDateString()}}</td>
                           <td>{{$reservation->date_of_return->toFormattedDateString()}}</td>
                       <td class="action-td">

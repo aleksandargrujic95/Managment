@@ -8,7 +8,7 @@
       <div class="therichpost-row-padding therichpost-margin-bottom customers-form">
           <form class="form-width" method="POST" action="{{route('customers.update', $customer)}}">
             @csrf
-            @method('put')
+            @method('PUT')
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputName4">Customer Name</label>
@@ -57,7 +57,7 @@
               </div>
               <div class="form-group col-md-3">
                 <label for="inputMoney">Money Spent</label>
-                <input type="number" class="form-control" name="money_spent" value="{{$customer->money_spent}}">
+                <input type="number" class="form-control" name="money_spent" value="{{number_format($customer->money_spent, 2, ',', '.')}}">
               </div>
               <div class="form-group col-md-3">
                 <label for="inputReferalId">Referal ID</label>
