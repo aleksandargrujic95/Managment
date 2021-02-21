@@ -15,8 +15,8 @@
               <input class="form-control" type="date" name="date_of_rent" value="today_parsed" id="example-date-input">
             </div>
             <div class="col-md-5">
-              <label for="example-date-input" class="col-7 col-form-label">Date of Return</label>
-              <input class="form-control" type="date" name="date_of_return" value="today_parsed" id="example-date-input">
+              <label for="example-date-input" class="col-7 col-form-label">Number of days</label>
+              <input class="form-control" type="string" name="number_of_days"  id="example-date-input">
             </div>
             </div>
             <input hidden type="text" name="active" value="0">
