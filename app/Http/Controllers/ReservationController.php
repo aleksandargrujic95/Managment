@@ -8,8 +8,10 @@ use App\Models\Product;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Carbon\CarbonImmutable;
 use Spatie\QueryBuilder\QueryBuilder;
 use Illuminate\Support\Facades\DB;
+
 
 class ReservationController extends Controller
 {
@@ -70,18 +72,20 @@ class ReservationController extends Controller
         $attributes = request()->validate([
             'product_id' => ['required'],
             'date_of_rent' => ['required'],
-            'date_of_return' => ['required'],
             'price' => ['required'],
             'active' => ['required'],
             'customer_id' => ['required']
         ]);
 
-        $today = Carbon::now();
-        $date_of_return =  Carbon::parse($request->date_of_rent)->format('Y-m-d');
+        $today = Carbon::now();    
+        $return = (new Carbon($request->date_of_rent))->addDays($request->number_of_days);
+        $date_of_return =  Carbon::parse($return)->format('Y-m-d');
 
         if($date_of_return < $today ){
             $attributes['active'] =  1;
         }
+
+        $attributes['date_of_return'] = $return;
 
         Reservation::create($attributes);
 
