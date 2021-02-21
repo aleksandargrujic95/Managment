@@ -26,8 +26,8 @@ class DashboardController extends Controller
 
         $reservations = Reservation::select(
             DB::raw('sum(price) as sums'), 
-            DB::raw("DATE_FORMAT(date_of_rent,'%M %Y') as months"),
-            DB::raw("DATE_FORMAT(date_of_rent,'%m') as monthKey")
+            DB::raw("DATE_FORMAT(date_of_rent,'MM-YYYY') as months"),
+            DB::raw("DATE_FORMAT(date_of_rent,'MM') as monthKey")
         )
         ->groupBy('months', 'monthKey')
         ->orderBy('date_of_rent', 'ASC')
@@ -56,8 +56,8 @@ class DashboardController extends Controller
 
         $customers = Customer::select(
             DB::raw('count(id) as `counted`'), 
-            DB::raw("DATE_FORMAT(created_at,'%M %Y') as months"),
-            DB::raw("DATE_FORMAT(created_at,'%m') as monthKey")
+            DB::raw("DATE_FORMAT(created_at,'MM-YYYY') as months"),
+            DB::raw("DATE_FORMAT(created_at,'MM') as monthKey")
         )
         ->groupBy('months', 'monthKey')
         ->orderBy('created_at', 'ASC')
