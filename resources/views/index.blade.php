@@ -46,19 +46,30 @@
         <h4>Categories</h4>
       </div>
     </div>
-     {{-- <div class="container-fluid">
+     <div class="container-fluid">
       <div class="row chart-div">
         <div class="col-md-4">{!! $chart_reservations->container() !!}</div>
         <div class="col-md-4">{!! $chart_customers->container() !!}</div>
       </div>
-    </div>  --}}
+    </div> 
+  @foreach ($categories_capacity as $category_capacity)
+      <div>
+        {{$category_capacity}}
+      </div>
+  @endforeach
+
+  @foreach ($categories_data as $category_data)
+      <div>
+        {{$category_data}}
+      </div>
+  @endforeach
   </div>
 
-    {{-- <script src="{{ $chart_reservations->cdn() }}"></script>
+    <script src="{{ $chart_reservations->cdn() }}"></script>
 
-    {{ $chart_reservations->script() }} --}}
+    {{ $chart_reservations->script() }} 
 
-    {{-- <script src="{{ $chart_customers->cdn() }}"></script>
+    <script src="{{ $chart_customers->cdn() }}"></script>
 
-    {{ $chart_customers->script() }}  --}}
+    {{ $chart_customers->script() }} 
 </x-layout>
