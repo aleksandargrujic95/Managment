@@ -15,13 +15,13 @@
               <label for="example-date-input" class="col-7 col-form-label">Date of Rent</label>
               <input class="form-control" type="date" name="date_of_rent" value="today_parsed" id="example-date-input"  value="{{$reservation->date_of_rent}}">
             </div>
-            <div class="col-md-5">
-              <label for="example-date-input" class="col-7 col-form-label">Date of Return</label>
-              <input class="form-control" type="date" name="date_of_return" value="today_parsed" id="example-date-input"  value="{{$reservation->date_of_return}}">
+            <div class="col-md-6">
+              <label for="example-date-input" class="col-7 col-form-label">Number of days</label>
+              <input class="form-control" type="number" name="number_of_days"  id="example-date-input">
             </div>
             </div>
             <input hidden type="text" name="active" value="0">
-            <input type="text" name="customer_id" hidden value="{{customer_id}}">
+            <input type="text" name="customer_id" hidden value="{{$reservation->customer_id}}">
             <br>
             <div class="form-group">
               <div class="col-md-7">
@@ -41,6 +41,12 @@
                           <option value="{{ $product->id }}">{{ $product->name }}</option>
                       @endforeach
                   </select>
+                </div>
+                <div class="form-check col-md-4">
+                  <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="gratis" value="1" >
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Gratis
+                  </label>
                 </div>
             </div>
           <button type="submit" class="btn btn-primary">Submit</button>

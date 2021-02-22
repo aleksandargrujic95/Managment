@@ -16,6 +16,8 @@ class Reservation extends Model
         'date_of_return'
     ];
 
+    protected $fillable = ['product_id'];
+
     public function customer()
     {
         return $this->belongsTo('App\Models\Customer', 'customer_id');

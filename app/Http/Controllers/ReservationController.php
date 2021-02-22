@@ -161,16 +161,21 @@ class ReservationController extends Controller
     public function update(Request $request, Reservation $reservation)
     {
 
-        $today = Carbon::now();
-        $date_of_rent =  Carbon::parse($request->date_of_rent)->format('Y-m-d');
-        $date_of_return =  Carbon::parse($request->date_of_return)->format('Y-m-d');
+        $today = Carbon::now();    
+        $return = (new Carbon($request->date_of_rent))->addDays($request->number_of_days);
+        $date_of_return =  Carbon::parse($return)->format('Y-m-d');
         
 
         if($date_of_return < $today ){
             $active =  1;
         }
         $product_id = $request->input('product_id');
-        $price = $request->input('price');
+        $gratis = $request->input('gratis');
+        if($gratis){
+            $request->price = 0;
+        }else{
+            $request->price = $request->price;
+        }
         $customer_id = $request->input('customer_id');
 
         $reservation->update(request([

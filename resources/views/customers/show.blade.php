@@ -51,7 +51,6 @@
                     </form>
                     <form action="{{ route('reservations.create') }}" method="GET" class="dlt-form">
                       @csrf
-                      <input type="text" hidden value="{{$customer->id}}" name="customer_id">
                       <button class="rsvr-btn" type="submit" class="delete" ><i class="fa fa-calendar" aria-hidden="true"  title="Submit"></i></button>
                     </form>
                   </td>
@@ -87,12 +86,12 @@
                   </thead>
                   <tbody>
                     @foreach ($customerReservations as $reservation)
-                    <tr>             
+                    <tr class="{{ $reservation->price == 0 ? 'gratis' : '' }}">             
                           <td>{{$reservation->id}}</td>    
                           <td>{{$reservation->customer->name}}</td>
                           <td>{{$reservation->product->name}}</td>
                           <td>{{($reservation->active) ? 'Collected'  : "Active"}}</td>
-                          <td>{{number_format($reservation->price, 2, ',', '.')}}</td>
+                          <td>{{$reservation->price == 0 ? 'gratis' : number_format($reservation->price, 2, ',', '.') }}</td>
                           <td>{{$reservation->date_of_rent->toFormattedDateString()}}</td>
                           <td>{{$reservation->date_of_return->toFormattedDateString()}}</td>
                       <td class="action-td">
