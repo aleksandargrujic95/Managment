@@ -60,5 +60,6 @@
             </table>
   
         </div>        
+        {!! $reservations->links() !!}
         </div>
   </x-layout>

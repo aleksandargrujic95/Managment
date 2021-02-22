@@ -34,7 +34,7 @@ class ReservationController extends Controller
      */
     public function indexAll(Reservation $reservation)
     {
-        $reservations = $reservation->all();
+        $reservations = $reservation->paginate(10);
 
         return view('/reservations/all', compact('reservations'));
     }
