@@ -862,6 +862,18 @@ table.table .avatar {
     color: #c59b08;
 }
 
+.capacity{
+    margin-top: 120px !important;
+}
+
+.active-products{
+    padding-left: 0 !important;
+}
+
+.all-products{
+    padding-right: 0 !important;
+}
+
 
 
 @media (min-width:601px){

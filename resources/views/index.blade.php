@@ -46,30 +46,80 @@
         <h4>Categories</h4>
       </div>
     </div>
-     <div class="container-fluid">
+     {{-- <div class="container-fluid">
       <div class="row chart-div">
         <div class="col-md-4">{!! $chart_reservations->container() !!}</div>
         <div class="col-md-4">{!! $chart_customers->container() !!}</div>
       </div>
-    </div> 
-  @foreach ($categories_capacity as $category_capacity)
-      <div>
-        {{$category_capacity}}
+    </div>  --}}
+    <div class="row capacity">
+    <div class="col-xl-4 all-products">
+      <div class="card">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+          </div>
+        </div>
+        <div class="table-responsive">
+          <!-- Projects table -->
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Products</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($categories_capacity as $category_capacity)
+              <tr>
+                <th scope="row">
+                  {{$category_capacity['name']}}
+                </th>
+                <td>
+                  {{$category_capacity['products_count']}}
+                </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
       </div>
-  @endforeach
-
-  @foreach ($categories_data as $category_data)
-      <div>
-        {{$category_data}}
+      
+    </div>
+    <div class="col-xl-2 active-products">
+      <div class="card">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+          </div>
+        </div>
+        <div class="table-responsive">
+          <!-- Projects table -->
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Available Products</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($categories_data as $category_data)
+              <tr>
+                <td>
+                  {{$category_data['products_count']}}
+                </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
       </div>
-  @endforeach
+    </div>
+  </div>
   </div>
 
-    <script src="{{ $chart_reservations->cdn() }}"></script>
+    {{-- <script src="{{ $chart_reservations->cdn() }}"></script>
 
     {{ $chart_reservations->script() }} 
 
     <script src="{{ $chart_customers->cdn() }}"></script>
 
-    {{ $chart_customers->script() }} 
+    {{ $chart_customers->script() }}  --}}
 </x-layout>
