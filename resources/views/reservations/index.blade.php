@@ -37,7 +37,7 @@
             </thead>
             <tbody class="current-reservations">
               @foreach ($reservations as $reservation)
-              <tr>             
+              <tr class="{{ $reservation->price == 0 ? 'gratis' : '' }}">             
                     <td>{{$reservation->id}}</td>    
                     <td>{{$reservation->customer->name}}</td>
                     <td>{{$reservation->product->name}}</td>

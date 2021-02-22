@@ -27,12 +27,12 @@
                 <label for="price">Price:</label>
                   <div class="input-group-prepend">
                     <span class="input-group-text">RSD</span>
-                  <input type="text" name="price" class="form-control" aria-label="Amount (to the nearest dollar)">
+                  <input type="text" name="price" class="form-control" aria-label="Amount (to the nearest dollar)" value="0">
                 </div>
               </div>
             </div>
             <div class="form-group" >
-              <div class="col-auto my-1 drpdwn">
+              <div class="col-md-3 my-1 drpdwn">
                   <label class="mr-sm-2" for="inlineFormCustomSelect">Product:</label>
                   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect"  name='product_id'>
                     <option selected>Choose...</option>
@@ -40,6 +40,12 @@
                           <option value="{{ $product->id }}">{{ $product->name }}</option>
                       @endforeach
                   </select>
+                </div>
+                <div class="form-check col-md-4">
+                  <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="gratis" value="1" >
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Gratis
+                  </label>
                 </div>
             </div>
           <button type="submit" class="btn btn-primary">Submit</button>

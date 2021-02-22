@@ -76,7 +76,13 @@ class ReservationController extends Controller
             'active' => ['required'],
             'customer_id' => ['required']
         ]);
-
+        
+        $gratis = $request->gratis;
+        if($gratis){
+            $attributes['price'] = 0;
+        }else{
+            $attributes['price'] = $request->price;
+        }
         $today = Carbon::now();    
         $return = (new Carbon($request->date_of_rent))->addDays($request->number_of_days);
         $date_of_return =  Carbon::parse($return)->format('Y-m-d');

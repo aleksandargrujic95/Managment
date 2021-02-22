@@ -874,6 +874,9 @@ table.table .avatar {
     padding-right: 0 !important;
 }
 
+.gratis{
+    background-color: #d2f8d2;
+}
 
 
 @media (min-width:601px){

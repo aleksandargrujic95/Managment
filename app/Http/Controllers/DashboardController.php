@@ -12,6 +12,7 @@ use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Illuminate\Support\Facades\DB;
 
 
+
 class DashboardController extends Controller
 {
     public function index(Customer $customer, Product $product, Category $category, Reservation $reservation)
