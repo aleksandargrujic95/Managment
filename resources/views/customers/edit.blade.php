@@ -57,7 +57,7 @@
               </div>
               <div class="form-group col-md-3">
                 <label for="inputMoney">Money Spent</label>
-                <input type="number" class="form-control" name="money_spent" value="{{number_format($customer->money_spent, 2, ',', '.')}}">
+                <input type="number" class="form-control" name="money_spent" value="{{$customer->money_spent}}">
               </div>
               <div class="form-group col-md-3">
                 <label for="inputReferalId">Referal ID</label>
