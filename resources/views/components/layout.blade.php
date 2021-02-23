@@ -30,7 +30,7 @@
         </button>
     </form>
   </span>
-  <span class="therichpost-bar-item therichpost-right"><a href="/notifications"><i class="fa fa-bell" data-toggle="tooltip" title="Edit"></i></a></span>
+  <span class="therichpost-bar-item therichpost-right"><a href="/notifications"><i class="fa fa-bell" data-toggle="tooltip" title="Edit">{{$notifications_numb == 0 ? '' : $notifications_numb}}</i></a></span>
 </div>
 <!-- Sidebar/menu -->
 <nav class="therichpost-sidebar therichpost-collapse therichpost-white therichpost-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>

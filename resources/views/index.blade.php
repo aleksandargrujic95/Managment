@@ -115,6 +115,7 @@
   </div>
   </div>
 
+
     {{-- <script src="{{ $chart_reservations->cdn() }}"></script>
 
     {{ $chart_reservations->script() }} 
@@ -122,4 +123,6 @@
     <script src="{{ $chart_customers->cdn() }}"></script>
 
     {{ $chart_customers->script() }}  --}}
+
+
 </x-layout>
