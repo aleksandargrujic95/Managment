@@ -16,7 +16,6 @@ class Reservation extends Model
         'date_of_return'
     ];
 
-    protected $fillable = ['product_id'];
 
     public function customer()
     {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b1c046fc984236362512cb399f302533",
+    "content-hash": "2f2166f3a7ee2340e3dea9f5fea6b3fe",
     "packages": [
         {
             "name": "arielmejiadev/larapex-charts",
@@ -3255,6 +3255,60 @@
                 }
             ],
             "time": "2021-01-26T20:46:41+00:00"
+        },
+        {
+            "name": "nexmo/client",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Nexmo/nexmo-php-complete.git",
+                "reference": "9d515f6592d466159f79dde460ce2b99b8128279"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Nexmo/nexmo-php-complete/zipball/9d515f6592d466159f79dde460ce2b99b8128279",
+                "reference": "9d515f6592d466159f79dde460ce2b99b8128279",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.0",
+                "nexmo/client-core": "^2.0",
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tim Lytle",
+                    "email": "tim@nexmo.com",
+                    "homepage": "http://twitter.com/tjlytle",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Michael Heap",
+                    "email": "michael.heap@vonage.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Lorna Mitchell",
+                    "email": "lorna.mitchell@vonage.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Chris Tankersley",
+                    "email": "chris.tankersley@vonage.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP Client for using Nexmo's API.",
+            "support": {
+                "email": "devrel@nexmo.com",
+                "source": "https://github.com/Nexmo/nexmo-php-complete/tree/2.4.0"
+            },
+            "time": "2020-09-10T18:41:31+00:00"
         },
         {
             "name": "nexmo/client-core",
