@@ -13,9 +13,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Product $product)
     {
-        $products = Product::all();
+        $products = $product->paginate(5);
         $categories = Category::all();
 
 

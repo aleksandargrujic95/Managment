@@ -146,8 +146,9 @@ class CustomerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Customer $customer)
-    {
-        $customer->update(request(['name','opstina','phone_number','address','comment','number_of_rent','money_spent','referal_points','find_us']));
+    {       
+            
+        $customer->update(request(['name','place','phone_number','address','comment','number_of_rent','money_spent','referal_points','find_us']));
 
         notify()->success('Customer updated sucessfully');
 
