@@ -59,7 +59,8 @@ class ReservationCheck extends Command
                     'date_of_return' => $res->date_of_return,
                     'price' => $res->price,
                     'active' => 0,
-                    'customer_id' => $res->customer_id
+                    'customer_id' => $res->customer_id,
+                    // 'reservation_id' => $res->id
                 ]);
 
                 DB::table('products')

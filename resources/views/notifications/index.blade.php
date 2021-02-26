@@ -40,6 +40,7 @@
                       @method('DELETE')
                       <button  type="submit" class="check" ><i class="fa fa-check" aria-hidden="true"  title="Done"></i></button>
                     </form>
+                    <button class="btn btn-info">extend</button>
                   </td>
                 </tr>
                 @endforeach

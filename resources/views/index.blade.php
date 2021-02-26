@@ -85,7 +85,7 @@
       </div>
       
     </div>
-    <div class="col-xl-2 active-products">
+    <div class="col-xl-3 active-products">
       <div class="card">
         <div class="card-header border-0">
           <div class="row align-items-center">

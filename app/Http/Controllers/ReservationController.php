@@ -243,7 +243,7 @@ class ReservationController extends Controller
 
         notify()->success('Reservation removed sucessfully');
 
-        return redirect('/reservations');
+        return back();
     }
 
 

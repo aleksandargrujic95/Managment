@@ -51,7 +51,6 @@
 
               </tbody>
             </table>  
-            {!! $products->links() !!}
     </div>
       <script>
         $(document).ready(function(){
