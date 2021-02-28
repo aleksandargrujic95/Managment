@@ -35,11 +35,15 @@
               </div>
             </div>
             <div class="form-row">
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-4">
                 <label for="inputAddress">Address</label>
                 <input type="text" class="form-control" placeholder="Customer Address" name="address" value="{{$customer->address}}">
               </div>
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-4">
+                <label for="inputAddress">Address 2</label>
+                <input type="text" class="form-control" placeholder="Customer Address 2" name="address2" value="{{$customer->address2}}">
+              </div>
+              <div class="form-group col-md-4">
                 <label for="find_us">How Did You Hear About Us</label>
                   <select name="find_us" class="form-control" id="find_us">
                     <option selected>Choose...</option>
@@ -69,13 +73,17 @@
               </div>
             </div>
             <div class="form-row">
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-4">
                 <label for="inputComment">Comment</label>
                 <input type="text" class="form-control" placeholder="Comment" name="comment"  value="{{$customer->comment}}">
               </div>
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-4">
                 <label for="inputPhone">Phone Number</label>
                 <input type="text" class="form-control" placeholder="Customer Phone Number" name="phone_number" value="{{$customer->phone_number}}">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputPhone">Second Phone Number</label>
+                <input type="text" class="form-control" placeholder="Second Phone Number" name="phone_number2" value="{{$customer->phone_number2}}">
               </div>
             </div>
             <button type="submit" class="btn btn-primary">Update Customer</button>

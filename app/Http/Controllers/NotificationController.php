@@ -44,7 +44,8 @@ class NotificationController extends Controller
             'date_of_return' => ['required'],
             'price' => ['required'],
             'active' => ['required'],
-            'customer_id' => ['required']
+            'customer_id' => ['required'],
+            'reservation_id' => ['required']
         ]);
 
         Notification::create($attributes);

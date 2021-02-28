@@ -431,7 +431,8 @@ a{
     width:99.99999%
 }
 .form-width{
-    width: 40%;
+    width: 60
+    %;
 }
 .form-width .drpdwn{
     width: 200px;
@@ -876,6 +877,10 @@ table.table .avatar {
 
 .gratis{
     background-color: #d2f8d2 !important;
+}
+
+.not-actions{
+    display: inline-flex;
 }
 
 

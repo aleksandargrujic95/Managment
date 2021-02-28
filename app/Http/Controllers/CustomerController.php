@@ -95,7 +95,9 @@ class CustomerController extends Controller
             'money_spent' => ['required'],
              'comment' => [],
              'find_us' => [],
-             'referal_points' => []
+             'referal_points' => [],
+             'address2' => [],
+             'phone_number2' => []
         ]);
         if($request->referal_id != null){
             $referal = DB::select('select * from customers where id =' . $request->referal_id);
@@ -148,7 +150,7 @@ class CustomerController extends Controller
     public function update(Request $request, Customer $customer)
     {       
             
-        $customer->update(request(['name','place','phone_number','address','comment','number_of_rent','money_spent','referal_points','find_us']));
+        $customer->update(request(['name','place','phone_number','address','comment','number_of_rent','money_spent','referal_points','find_us','address2','phone_number2']));
 
         notify()->success('Customer updated sucessfully');
 

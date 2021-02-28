@@ -74,7 +74,12 @@ class ReservationController extends Controller
             'date_of_rent' => ['required'],
             'price' => ['required'],
             'active' => ['required'],
-            'customer_id' => ['required']
+            'customer_id' => ['required'],
+            'comment' => [],
+            'other_prod_2' => [],
+            'other_prod_1' => [],
+            'deliverer' => [],
+            'joystick' => []
         ]);
         
         $gratis = $request->gratis;
@@ -184,7 +189,12 @@ class ReservationController extends Controller
             'date_of_return',
             'price',
             'active',
-            'customer_id'
+            'customer_id',
+            'joystick',
+            'other_prod_1',
+            'other_prod_1',
+            'deliverer',
+            'comment'
         ]));
 
         //Update

@@ -28,10 +28,13 @@
                 <th>Customer:</th>
                 <th>Product:</th>
                 <th>Status:</th>                              
+                <th>Joysticks:</th>
+                <th>Product2:</th>
+                <th>Product3:</th>   
+                <th>Comment:</th>                           
                 <th>Price:</th>
                 <th>Date of rent:</th>
                 <th>Date of return:</th>
-                <th>Action</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -42,10 +45,13 @@
                     <td>{{$reservation->customer->name}}</td>
                     <td>{{$reservation->product->name}}</td>
                     <td>{{$reservation->active}}</td>
+                    <td>{{$reservation->joystick}}</td>
+                    <td>{{$reservation->other_prod_1}}</td>    
+                    <td>{{$reservation->other_prod_2}}</td>
+                    <td>{{$reservation->comment}}</td>
                     <td>{{$reservation->price == 0 ? 'gratis' : number_format($reservation->price, 2, ',', '.') }}</td>
                     <td>{{$reservation->date_of_rent->toFormattedDateString()}}</td>
                     <td>{{$reservation->date_of_return->toFormattedDateString()}}</td>
-                    <th>{{$reservation->customer_id}}</th>
                 <td class="action-td">
                   <a href="{{ route('reservations.edit', $reservation->id) }}" class="edit" ><i class="fa fa-pencil"  title="Edit"></i></a>
                   <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST" class="dlt-form">

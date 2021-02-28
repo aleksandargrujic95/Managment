@@ -34,13 +34,13 @@
                       <td>{{$notification->product->name}}</td>
                       <td>{{$notification->price}}</td>
                       <td>{{$notification->customer->phone_number}}</td>
-                  <td>
+                  <td class="not-actions">
                     <form action="{{ route('notifications.destroy', $notification->id) }}" method="POST" class="dlt-form">
                       @csrf
                       @method('DELETE')
                       <button  type="submit" class="check" ><i class="fa fa-check" aria-hidden="true"  title="Done"></i></button>
                     </form>
-                    <button class="btn btn-info">extend</button>
+                    <a href="/reservations/{{$notification->reservation_id}}/edit" id="edit-notification" class="btn btn-info" >extend</a>
                   </td>
                 </tr>
                 @endforeach

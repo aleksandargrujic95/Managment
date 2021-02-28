@@ -60,7 +60,7 @@ class ReservationCheck extends Command
                     'price' => $res->price,
                     'active' => 0,
                     'customer_id' => $res->customer_id,
-                    // 'reservation_id' => $res->id
+                    'reservation_id' => $res->id
                 ]);
 
                 DB::table('products')
