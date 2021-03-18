@@ -124,9 +124,11 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer, Reservation $reservation)
     {
+        $avatar = new Avatar();
+
         $customerReservations = $reservation->where('customer_id', $customer->id)->get();
 
-        return view('customers.show', compact('customer', 'customerReservations'));
+        return view('customers.show', compact('customer', 'customerReservations', 'avatar'));
     }
 
     /**

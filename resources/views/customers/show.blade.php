@@ -21,27 +21,48 @@
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
-                  <th>Number</th>
-                  <th>Jbk</th>
-                  <th>Place</th>
-                  <th>Addresss</th>
-                  <th>Name</th>                 
+                  <th>Avatar</th>
+                  <th>id</th>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>Address2</th>
+                  <th>Place</th>                 
                   <th>Phone number</th>
+                  <th>Phone number2</th>
                   <th>Money spent</th>
+                  <th>Number of rents</th>
                   <th>Comment</th>
+                  <th>Loyality</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>             
+                <tr>   
+                      <td><img src="{{$avatar->create($customer->name)->toBase64()}}"></td>            
                       <td>{{$customer->id}}</td>    
-                      <td>{{$customer->jbk}}</td>
-                      <td>{{$customer->opstina}}</td>
-                      <td>{{$customer->address}}</td>
                       <td>{{$customer->name}}</td>
+                      <td>{{$customer->address}}</td>
+                      <td>{{$customer->address2}}</td>
+                      <td>{{$customer->place}}</td>
                       <td>{{$customer->phone_number}}</td>
+                      <td>{{$customer->phone_number2}}</td>
                       <td>RSD {{$customer->money_spent}}</td>
+                      <td>{{$customer->number_of_rent}}</td>
                       <td>{{$customer->comment}}</td>
+                      <td class="customer-rank">
+                        <a  href="{{ route('customers.show', $customer->id) }}"> 
+                          @if ($customer->money_spent < 20000)
+                          @elseif($customer->money_spent >= 20000 && $customer->money_spent < 30000)
+                            <img  src="{{url('/images/silver.png')}}" alt="silver">    
+                          @elseif($customer->money_spent >= 30000 && $customer->money_spent < 50000)
+                            <img  src="{{url('/images/gold.png')}}" alt="gold">    
+                          @elseif($customer->money_spent >= 50000 && $customer->money_spent < 100000)
+                            <img  src="{{url('/images/platinum.png')}}" alt="platinum">    
+                          @elseif($customer->money_spent >= 100000)
+                            <img  src="{{url('/images/diamond.png')}}" alt="diamond">    
+                          @endif
+                        </a>
+                      </td>
                   <td class="action-td">
                     <a href="{{ route('customers.edit', $customer->id) }}" class="edit" ><i class="fa fa-pencil"  title="Edit"></i></a>
                     <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" class="dlt-form">

@@ -21,7 +21,7 @@ class AdminAuthenticated
         {
             // if user is not admin take him to his dashboard
             if ( Auth::user()->isUser() ) {
-                 return redirect(route('/users/welcome'));
+                 return redirect('/welcome');
             }
 
             // allow admin to proceed with request

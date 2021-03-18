@@ -82,9 +82,11 @@
                 <th>Avatar</th>
                 <th>id</th>
                 <th>Name</th>
-                <th>Addresss</th>
+                <th>Address</th>
+                <th>Address2</th>
                 <th>Place</th>                 
                 <th>Phone number</th>
+                <th>Phone number2</th>
                 <th>Money spent</th>
                 <th>Number of rents</th>
                 <th>Loyality</th>
@@ -107,10 +109,16 @@
                       <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->address}}</a>
                     </td>
                     <td>
+                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->address2}}</a>
+                    </td>
+                    <td>
                       <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->place}}</a>
                     </td>
                     <td>
                       <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->phone_number}}</a>
+                    </td>
+                    <td>
+                      <a href="{{ route('customers.show', $customer->id) }}"> {{$customer->phone_number2}}</a>
                     </td>
                     <td>
                       <a href="{{ route('customers.show', $customer->id) }}">RSD {{number_format($customer->money_spent, 2, ',', '.')}}</a>

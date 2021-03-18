@@ -69,7 +69,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 // Middleware group for user
 Route::middleware(['auth', 'user'])->group(function () {
 
-    Route::get('/user/welcome', [RouteController::class, 'index']);
+    Route::get('welcome', [RouteController::class, 'index']);
 
 });
 
